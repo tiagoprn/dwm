@@ -1,0 +1,4 @@
+- [ ] Configure dwm autostart, with all programs that also start on i3.
+- [ ] Keep the scratchpad that has the floating terminal, and use the other one for the vim notes.
+- [ ] Remove the keyboard shortcuts that I will not use
+- [ ] bring some i3 bindsyms to dwm
