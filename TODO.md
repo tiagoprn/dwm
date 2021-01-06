@@ -1,7 +1,9 @@
+- [ ] Configure scratchpads for vim and personal-calendar, to be opened with urxvt on picom with no transparency
+- [ ] remap mod+d to run the rofi apps menu, and mod+shift+d to run dmenu
+- [ ] remap mod+z to quit dwm (`fusermount -u /storage && loginctl terminate-user pi`)
 - [ ] Configure dwm autostart, with all programs that also start on i3 (maybe use `/usr/bin/startdwm`?).
-- [ ] Keep the scratchpad that has the floating terminal to call lxsession, and use the other one for the vim notes.
-- [ ] Open the vim-notes with lxterminal, with no transparency on picom
 - [ ] Remove the keyboard shortcuts that I will not use
 - [ ] bring some i3 bindsyms to dwm using shkxd
+- [ ] add comments to all bindings on config.h, so that I can run with a rofi cheatsheet (copy from vim.cheatsheet)
 - [x] Remove garbage from dwmblocks, keep it more minimal.
 - [x] Move the script I used on i3blocks (load average, memory, caps lock etc to dwmblocks.

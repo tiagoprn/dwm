@@ -5,7 +5,7 @@
 #define TERMCLASS "St"
 
 /* appearance */
-static unsigned int borderpx  = 1;        /* border pixel of windows */
+static unsigned int borderpx  = 2;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -32,8 +32,9 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
+/* The option --title below sets WM_NAME, or the window name, that is passed here so the scratchpad functionality works. */
+const char *spcmd1[] = {"urxvt", "-hold", "--title", "spterm", "-e", "/home/pi/apps/scripts/bin/i3-vim.sh", NULL };
+const char *spcmd2[] = {"urxvt", "-hold", "--title", "spcalc", "-e", "/home/pi/apps/scripts/bin/i3-personal-calendar.sh", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
@@ -199,11 +200,12 @@ static Key keys[] = {
 	{ MODKEY,			XK_l,		setmfact,      	{.f = +0.05} },
 	{ MODKEY,			XK_semicolon,	shiftview,	{ .i = 1 } },
 	{ MODKEY|ShiftMask,		XK_semicolon,	shifttag,	{ .i = 1 } },
-	{ MODKEY,			XK_apostrophe,	togglescratch,	{.ui = 1} },
 	/* { MODKEY|ShiftMask,		XK_apostrophe,	spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_Return,	spawn,		{.v = termcmd } },
+	/* --- SCRATCHPADS begin --- */
 	{ MODKEY|ShiftMask,		XK_Return,	togglescratch,	{.ui = 0} },
-
+	{ MODKEY,			XK_apostrophe,	togglescratch,	{.ui = 1} },
+	/* --- SCRATCHPADS end --- */
 	{ MODKEY,			XK_z,		incrgaps,	{.i = +3 } },
 	/* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_x,		incrgaps,	{.i = -3 } },
