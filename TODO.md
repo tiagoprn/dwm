@@ -1,6 +1,7 @@
-- [ ] Remove garbage from dwmblocks, keep it more minimal.
-- [ ] Move the script I used on i3blocks (load average, memory, caps lock etc to dwmblocks.
-- [ ] Configure dwm autostart, with all programs that also start on i3.
-- [ ] Keep the scratchpad that has the floating terminal, and use the other one for the vim notes.
+- [ ] Configure dwm autostart, with all programs that also start on i3 (maybe use `/usr/bin/startdwm`?).
+- [ ] Keep the scratchpad that has the floating terminal to call lxsession, and use the other one for the vim notes.
+- [ ] Open the vim-notes with lxterminal, with no transparency on picom
 - [ ] Remove the keyboard shortcuts that I will not use
-- [ ] bring some i3 bindsyms to dwm
+- [ ] bring some i3 bindsyms to dwm using shkxd
+- [x] Remove garbage from dwmblocks, keep it more minimal.
+- [x] Move the script I used on i3blocks (load average, memory, caps lock etc to dwmblocks.
