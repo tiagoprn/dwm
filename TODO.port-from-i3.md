@@ -1,24 +1,4 @@
-## STARTUP
-
-```
-exec_always --no-startup-id picom --config ~/picom.conf --backend glx
-exec_always --no-startup-id /usr/bin/lxpolkit
-exec --no-startup-id "/home/pi/apps/scripts/bin/clippy.py"
-exec --no-startup-id "arandr && /home/pi/apps/scripts/bin/i3_change_wallpaper.sh"
-# TODO: setup and install trayer-ng, so that I can use the network manager applet from lxde
-# TODO: start dunst
-
-# exec_always --no-startup-id "notify-send 'Activating keyboard backlight...' --urgency low; /home/pi/apps/scripts/bin/keyboard-backlight.sh"
-# exec_always --no-startup-id "cd /home/pi/apps/scripts/bin/battery_wallpaper && ./battery_wall.py"
-
-exec --no-startup-id /home/pi/apps/scripts/bin/i3-vim.sh
-exec --no-startup-id /home/pi/apps/scripts/bin/i3-personal-calendar.sh
-exec --no-startup-id /home/pi/apps/scripts/bin/i3-dashboard.sh
-# exec --no-startup-id "notify-send 'Launching conky...' --urgency low; ~/.Conky/startconky.sh"
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-```
-
-------
+---
 
 ## BINDSYMS
 
@@ -57,5 +37,10 @@ bindsym $mod+s exec --no-startup-id "/home/pi/apps/scripts/rofi/snippets.sh"
 bindsym $mod+c exec --no-startup-id "/home/pi/apps/scripts/bin/customize_capslock.sh"
 bindsym Mod1+b exec --no-startup-id "flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal -C ~/.local/share/qutebrowser/personal/config/config.py"
 # bindsym Mod1+Shift+b exec --no-startup-id "flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/work/dafiti -C ~/.local/share/qutebrowser/work/dafiti/config/config.py"
+# /home/pi/apps/scripts/bin/i3-vim.sh &
+# /home/pi/apps/scripts/bin/i3-personal-calendar.sh &
+# /home/pi/apps/scripts/bin/i3-dashboard.sh &
+# notify-send 'Activating keyboard backlight...' --urgency low; /home/pi/apps/scripts/bin/keyboard-backlight.sh &
+# TODO: think a better way to do this: arandr && /home/pi/apps/scripts/bin/i3_change_wallpaper.sh &
 # TODO: a command to see the desktop, without the windows
 ```
