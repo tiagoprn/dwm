@@ -204,7 +204,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_Return,	spawn,		{.v = termcmd } },
 	/* --- SCRATCHPADS begin --- */
 	{ MODKEY|ShiftMask,		XK_Return,	togglescratch,	{.ui = 0} },
-	{ MODKEY,			XK_apostrophe,	togglescratch,	{.ui = 1} },
+	{ MODKEY|ControlMask,		XK_Return,	togglescratch,	{.ui = 1} },
 	/* --- SCRATCHPADS end --- */
 	{ MODKEY,			XK_z,		incrgaps,	{.i = +3 } },
 	/* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("") }, */

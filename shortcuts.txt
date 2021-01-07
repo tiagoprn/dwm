@@ -69,7 +69,7 @@ Mod+; – Go to right tag (hold shift to send window there)
 Mod+Left – Move to workspace to the left
 Mod+Right – Move to workspace to the right
 Mod+Shift+Enter - vim scratchpad
-Mod+Apostrophe -  calendar scratchpad
+Mod+Ctrl+Enter - calendar scratchpad
 
 NOTES:
 <https://dwm.suckless.org/patches/scratchpads/>
