@@ -1,8 +1,15 @@
 #!/bin/bash
 LOG_FILE=/tmp/dwm.$(date +%Y-%m-%d).log
 
+echo "$(date +%Y%m%d-%H%M%S-%N) Sourcing environment files..." >> $LOG_FILE
+
+source $HOME/.bash_profile
+source $HOME/.bash_functions
+source $HOME/.bash_aliases
+source $HOME/.bashrc
+
 DWM_BIN=$HOME/local/bin/dwm
-echo "Starting dwm ($DWM_BIN) ..." >> $LOG_FILE
+echo "$(date +%Y%m%d-%H%M%S-%N) Starting dwm ($DWM_BIN) ..." >> $LOG_FILE
 $DWM_BIN >> $LOG_FILE 2>&1
 
 
