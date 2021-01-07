@@ -32,6 +32,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
+
 /* The option --title below sets WM_NAME, or the window name, that is passed here so the scratchpad functionality works. */
 const char *spcmd1[] = {"urxvt", "-hold", "--title", "spterm", "-e", "/home/pi/apps/scripts/bin/i3-vim.sh", NULL };
 const char *spcmd2[] = {"urxvt", "-hold", "--title", "spcalc", "-e", "/home/pi/apps/scripts/bin/i3-personal-calendar.sh", NULL };
@@ -83,18 +84,20 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+
 #define STACKKEYS(MOD,ACTION) \
 	{ MOD,	XK_j,	ACTION##stack,	{.i = INC(+1) } }, \
 	{ MOD,	XK_k,	ACTION##stack,	{.i = INC(-1) } }, \
 	{ MOD,  XK_v,   ACTION##stack,  {.i = 0 } }, \
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/bash", "-c", cmd, NULL } }
 
 /* commands */
 static const char *termcmd[]  = { TERMINAL, NULL };
