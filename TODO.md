@@ -1,6 +1,7 @@
 - [ ] Configure scratchpads for vim and personal-calendar, to be opened with urxvt on picom with no transparency
 - [ ] remap mod+d to run the rofi apps menu, and mod+shift+d to run dmenu
 - [ ] remap mod+z to quit dwm (`fusermount -u /storage && loginctl terminate-user pi`)
+- [ ] Instalar e configurar o khal e o vdirsyncer para o scratchpad do personal-calendar funcionar.
 - [ ] Configure dwm autostart, with all programs that also start on i3 (maybe use `/usr/bin/startdwm`?).
 - [ ] Remove the keyboard shortcuts that I will not use
 - [ ] bring some i3 bindsyms to dwm using shkxd
