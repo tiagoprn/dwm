@@ -1,5 +1,5 @@
 #!/bin/bash
-LOG_FILE=/tmp/dwm.$(date +%Y-%m-%d_%H).log
+LOG_FILE=/tmp/dwm.$(date +%Y-%m-%d).log
 
 DWM_BIN=$HOME/local/bin/dwm
 echo "Starting dwm ($DWM_BIN) ..." >> $LOG_FILE
