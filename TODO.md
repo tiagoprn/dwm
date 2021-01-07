@@ -1,6 +1,6 @@
+- [ ] `TODO.port-from-i3.md`: Configure dwm autostart (maybe use `/usr/bin/startdwm`?).
 - [ ] Remap mod+d to run the rofi apps menu, and mod+shift+d to run dmenu
 - [ ] Remap mod+z as on i3, and change the quit dwm command if os=raspbian (`fusermount -u /storage && loginctl terminate-user pi`)
-- [ ] `TODO.port-from-i3.md`: Configure dwm autostart (maybe use `/usr/bin/startdwm`?).
 - [ ] `TODO.port-from-i3.md`: Port i3 bindsyms
 
 - [ ] Add comments to all bindings on config.h, so that I can run with a rofi cheatsheet (copy from vim.cheatsheet)

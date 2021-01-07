@@ -1,0 +1,28 @@
+#!/bin/bash
+DWM_BIN=$HOME/local/bin/dwm
+LOG_FILE=/tmp/dwm.$(date +%Y-%m-%d_%H).log
+echo "Starting dwm ($DWM_BIN) ..." >> $LOG_FILE
+$DWM_BIN >> $LOG_FILE 2>&1
+
+# autostart programs
+
+# TODO: start dunst
+picom --config ~/picom.conf --backend glx
+/usr/bin/lxpolkit
+/home/pi/apps/scripts/bin/clippy.py
+arandr && /home/pi/apps/scripts/bin/i3_change_wallpaper.sh
+# TODO: setup and install trayer-ng, so that I can use the same network manager applet as lxde
+
+# notify-send 'Activating keyboard backlight...' --urgency low; /home/pi/apps/scripts/bin/keyboard-backlight.sh
+# cd /home/pi/apps/scripts/bin/battery_wallpaper && ./battery_wall.py
+
+# /home/pi/apps/scripts/bin/i3-vim.sh
+# /home/pi/apps/scripts/bin/i3-personal-calendar.sh
+# /home/pi/apps/scripts/bin/i3-dashboard.sh
+
+# notify-send 'Launching conky...' --urgency low; ~/.Conky/startconky.sh
+# $HOME/.config/polybar/launch.sh
+
+
+
+
