@@ -3,7 +3,7 @@ LOG_FILE=/tmp/dwm.$(date +%Y-%m-%d).log
 
 DWM_BIN=$HOME/local/bin/dwm
 echo "Starting dwm ($DWM_BIN) ..." >> $LOG_FILE
-$DWM_BIN >> $LOG_FILE 2>&1 &
+$DWM_BIN >> $LOG_FILE 2>&1
 
 # ---
 # Autostart Programs
