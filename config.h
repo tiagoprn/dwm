@@ -160,7 +160,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_Right,		focusmon,	{.i = +1 } },
 	{ MODKEY,			XK_Left,		focusmon,	{.i = -1 } },
 
-	{ MODKEY,			XK_z,			incrgaps,	{.i = +3 } },
+	{ MODKEY,			XK_p,			incrgaps,	{.i = +3 } },
 	{ MODKEY,			XK_x,			incrgaps,	{.i = -3 } },
 
 	{ MODKEY|ShiftMask,		XK_Left,		tagmon,		{.i = -1 } },
@@ -198,6 +198,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_i,			setlayout,	{.v = &layouts[7]} }, /* centeredfloatingmaster */
 	{ MODKEY|ShiftMask,		XK_f,			setlayout,	{.v = &layouts[8]} }, /* floating */
 
+	{ MODKEY,			XK_d,			spawn,          SHCMD("rofi -show run") },
+	{ MODKEY|ShiftMask		XK_d,			spawn,          SHCMD("dmenu_run") },
+	{ MODKEY 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") },
 	{ MODKEY,			XK_Return,		spawn,		{.v = termcmd } },
 	{ MODKEY,			XK_minus,		spawn,		SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,		XK_minus,		spawn,		SHCMD("pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)") },
@@ -205,7 +208,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_equal,		spawn,		SHCMD("pamixer --allow-boost -i 15; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,		XK_w,			spawn,		SHCMD(TERMINAL " -e sudo nmtui") },
 	{ MODKEY|ShiftMask,		XK_r,			spawn,		SHCMD(TERMINAL " -e htop") },
-	{ MODKEY,			XK_d,			spawn,          SHCMD("dmenu_run") },
 	{ MODKEY|ShiftMask,		XK_m,			spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,			XK_F4,			spawn,		SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,			XK_Scroll_Lock,		spawn,		SHCMD("killall screenkey || screenkey &") },
