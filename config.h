@@ -185,7 +185,7 @@ static Key keys[] = {
 	/* description: (dwm) */ 				{ MODKEY,			XK_f,			togglefullscr,	{0} },
 	/* description: (dwm) scratchpad 1 */ 			{ MODKEY|ShiftMask,		XK_Return,		togglescratch,	{.ui = 0} },
 	/* description: (dwm) scratchpad 2 */ 			{ MODKEY|ControlMask,		XK_Return,		togglescratch,	{.ui = 1} },
-	/* description: (dwm) */ 				{ MODKEY,			XK_b,			togglebar,	{0} },
+	/* description: (dwm) */ 				{ MODKEY,		XK_b,			togglebar,	{0} },
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_space,		togglefloating,	{0} },
 
 	/* description: (dwm:layouts) bstack */ 		{ MODKEY|ShiftMask,		XK_t,			setlayout,	{.v = &layouts[1]} },
@@ -198,11 +198,12 @@ static Key keys[] = {
 	/* description: (dwm:layouts) centeredfloatingmaster */ { MODKEY|ShiftMask,		XK_i,			setlayout,	{.v = &layouts[7]} },
 	/* description: (dwm:layouts) floating */ 		{ MODKEY|ShiftMask,		XK_f,			setlayout,	{.v = &layouts[8]} },
 
-	/* description: (custom-command) */ 			{ MODKEY,			XK_d,			spawn,          SHCMD("rofi -show drun -drun-icon-theme") },
+	/* description: (custom-command) */ 			{ MODKEY,			XK_e,			spawn,          SHCMD("rofi -show drun -drun-icon-theme") },
+	/* description: (custom-command) */ 			{ MODKEY|ShiftMask,		XK_e,			spawn,          SHCMD("dmenu_run") },
 	/* description: (custom-command) */ 			{ MODKEY, 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") },
-	/* description: (custom-command) */ 			{ MODKEY|ShiftMask,		XK_d,			spawn,          SHCMD("dmenu_run") },
 	/* description: (custom-command) */ 			{ MODKEY, 			XK_c,			spawn,          SHCMD("clippy_rofi.py") },
 	/* description: (custom-command) */ 			{ MODKEY,			XK_Return,		spawn,		{.v = termcmd} },
+	/* description: (custom-command) */ 			{ MODKEY, 			XK_d,			spawn,          SHCMD("~/apps/scripts/rofi/dwm_cheatsheet.sh") },
 	/* description: (custom-command) */ 			{ MODKEY,			XK_minus,		spawn,		SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
 	/* description: (custom-command) */ 			{ MODKEY|ShiftMask,		XK_minus,		spawn,		SHCMD("pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)") },
 	/* description: (custom-command) */ 			{ MODKEY,			XK_equal,		spawn,		SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
