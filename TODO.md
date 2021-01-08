@@ -4,6 +4,9 @@
 
 ```
 cat /storage/src/dwm/config.h | grep 'description: ' | sort | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\*/---/g' | sed 's/\*\///g'
+cat /storage/src/dwm/config.h | grep 'description: ' | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\*/---/g' | sed 's/\*\///g' | sort
+cat /storage/src/dwm/config.h | grep 'description: ' | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\* description: //g' | sed 's/\*\///g' |  sort
+cat /storage/src/dwm/config.h | grep 'description: ' | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\* description: //g' | sed 's/\*\///g' | sed 's/,//g' | sed 's/\\$//g' |  sort
 ```
 
 - [ ] Instalar e configurar o khal e o vdirsyncer para o scratchpad do personal-calendar funcionar.
