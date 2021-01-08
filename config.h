@@ -199,8 +199,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_f,			setlayout,	{.v = &layouts[8]} }, /* floating */
 
 	{ MODKEY,			XK_d,			spawn,          SHCMD("rofi -show run") },
-	{ MODKEY|ShiftMask		XK_d,			spawn,          SHCMD("dmenu_run") },
-	{ MODKEY 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") },
+	{ MODKEY|ShiftMask,		XK_d,			spawn,          SHCMD("dmenu_run") },
+	{ MODKEY, 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") },
 	{ MODKEY,			XK_Return,		spawn,		{.v = termcmd } },
 	{ MODKEY,			XK_minus,		spawn,		SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,		XK_minus,		spawn,		SHCMD("pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)") },
