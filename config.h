@@ -183,9 +183,9 @@ static Key keys[] = {
 	/* description: (dwm) */ 				{ MODKEY,			XK_a,			togglegaps,	{0} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_s,			togglesticky,	{0} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_f,			togglefullscr,	{0} },
-	/* description: (dwm) scratchpad 1 */ 			{ MODKEY|ShiftMask,		XK_Return,		togglescratch,	{.ui = 0} },
-	/* description: (dwm) scratchpad 2 */ 			{ MODKEY|ControlMask,		XK_Return,		togglescratch,	{.ui = 1} },
-	/* description: (dwm) */ 				{ MODKEY,		XK_b,			togglebar,	{0} },
+	/* description: (dwm) scratchpad 1 */ 			{ ControlMask|Mod1Mask,		1,			togglescratch,	{.ui = 0} },
+	/* description: (dwm) scratchpad 2 */ 			{ ControlMask|Mod1Mask,		2,			togglescratch,	{.ui = 1} },
+	/* description: (dwm) */ 				{ MODKEY,			XK_b,			togglebar,	{0} },
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_space,		togglefloating,	{0} },
 
 	/* description: (dwm:layouts) bstack */ 		{ MODKEY|ShiftMask,		XK_t,			setlayout,	{.v = &layouts[1]} },
@@ -198,21 +198,34 @@ static Key keys[] = {
 	/* description: (dwm:layouts) centeredfloatingmaster */ { MODKEY|ShiftMask,		XK_i,			setlayout,	{.v = &layouts[7]} },
 	/* description: (dwm:layouts) floating */ 		{ MODKEY|ShiftMask,		XK_f,			setlayout,	{.v = &layouts[8]} },
 
-	/* description: (custom-command) */ 			{ MODKEY,			XK_e,			spawn,          SHCMD("rofi -show drun -drun-icon-theme") },
-	/* description: (custom-command) */ 			{ MODKEY|ShiftMask,		XK_e,			spawn,          SHCMD("dmenu_run") },
-	/* description: (custom-command) */ 			{ MODKEY, 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") },
-	/* description: (custom-command) */ 			{ MODKEY, 			XK_c,			spawn,          SHCMD("clippy_rofi.py") },
-	/* description: (custom-command) */ 			{ MODKEY,			XK_Return,		spawn,		{.v = termcmd} },
-	/* description: (custom-command) */ 			{ MODKEY, 			XK_d,			spawn,          SHCMD("~/apps/scripts/rofi/dwm_cheatsheet.sh") },
-	/* description: (custom-command) */ 			{ MODKEY,			XK_minus,		spawn,		SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
-	/* description: (custom-command) */ 			{ MODKEY|ShiftMask,		XK_minus,		spawn,		SHCMD("pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)") },
-	/* description: (custom-command) */ 			{ MODKEY,			XK_equal,		spawn,		SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
-	/* description: (custom-command) */ 			{ MODKEY|ShiftMask,		XK_equal,		spawn,		SHCMD("pamixer --allow-boost -i 15; kill -44 $(pidof dwmblocks)") },
-	/* description: (custom-command) */ 			{ MODKEY|ShiftMask,		XK_w,			spawn,		SHCMD(TERMINAL " -e sudo nmtui") },
-	/* description: (custom-command) */ 			{ MODKEY|ShiftMask,		XK_r,			spawn,		SHCMD(TERMINAL " -e htop") },
-	/* description: (custom-command) */ 			{ MODKEY|ShiftMask,		XK_m,			spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
-	/* description: (custom-command) */ 			{ MODKEY,			XK_F4,			spawn,		SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") },
-	/* description: (custom-command) */ 			{ MODKEY,			XK_Scroll_Lock,		spawn,		SHCMD("killall screenkey || screenkey &") },
+	/* description: (cmd) */ 				{ MODKEY,			XK_e,			spawn,          SHCMD("rofi -show drun -drun-icon-theme") },
+	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_e,			spawn,          SHCMD("dmenu_run") },
+	/* description: (cmd) */ 				{ MODKEY, 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") },
+	/* description: (cmd) */ 				{ MODKEY, 			XK_c,			spawn,          SHCMD("clippy_rofi.py") },
+	/* description: (cmd) */ 				{ MODKEY,			XK_Return,		spawn,		{.v = termcmd} },
+	/* description: (cmd) */ 				{ MODKEY, 			XK_d,			spawn,          SHCMD("~/apps/scripts/rofi/dwm_cheatsheet.sh") },
+	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_Return,		spawn,          SHCMD("st -e bash -c 'TERM=screen-256color /home/pi/apps/scripts/bin/start_random_tmux_session_name.sh'") },
+	/* description: (cmd) */ 				{ Mod1Mask,			XK_Tab,			spawn,          SHCMD("rofi -show window -drun-icon-theme") },
+	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_d,			spawn,          SHCMD("notify-send -u critical 'Restarting dwm...' && pkill -HUP dwm") },
+	/* description: (cmd) increase screen brightness */ 	{ Mod1Mask|ShiftMask,		XK_Up,			spawn,          SHCMD("xbacklight -inc 20") },
+	/* description: (cmd) decrease screen brightness */	{ Mod1Mask|ShiftMask,		XK_Down,		spawn,          SHCMD("xbacklight -dec 20") },
+	/* description: (cmd) */ 				{ Mod1Mask,			XK_Space,		spawn,          SHCMD("playerctl play-pause && kill -44 $(pidof dwmblocks)") },
+	/* description: (cmd) */ 				{ Mod1Mask,			XK_Right,		spawn,          SHCMD("playerctl next && kill -44 $(pidof dwmblocks)") },
+	/* description: (cmd) */ 				{ Mod1Mask,			XK_Left,		spawn,          SHCMD("playerctl previous && kill -44 $(pidof dwmblocks)") },
+	/* description: (cmd) increase sound volume */		{ Mod1Mask,			XK_Up,			spawn,          SHCMD("pactl set-sink-volume 0 +5% && kill -44 $(pidof dwmblocks)") },
+	/* description: (cmd) decrease sound volume */		{ Mod1Mask,			XK_Down,		spawn,          SHCMD("pactl set-sink-volume 0 -5% && kill -44 $(pidof dwmblocks)") },
+	/* description: (cmd) mute/unmute sound */ 		{ Mod1Mask,			XK_Shift,		spawn,          SHCMD("pactl set-sink-mute 0 toggle && kill -44 $(pidof dwmblocks)") },
+
+
+
+
+
+
+
+
+	/* description: (cmd) */ 			{ MODKEY|ShiftMask,		XK_w,			spawn,		SHCMD(TERMINAL " -e sudo nmtui") },
+	/* description: (cmd) */ 			{ MODKEY|ShiftMask,		XK_r,			spawn,		SHCMD(TERMINAL " -e htop") },
+	/* description: (cmd) */ 			{ MODKEY,			XK_Scroll_Lock,		spawn,		SHCMD("killall screenkey || screenkey &") },
 
 	/* OTHER EXAMPLES */
 	/* { MODKEY,			XK_e,			spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") }, */

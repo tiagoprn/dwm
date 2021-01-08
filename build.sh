@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 echo 'Compiling and installing dwm...'
 DESTDIR=~/local PREFIX='' make clean install
 echo 'Converting man page to html...'
