@@ -56,6 +56,7 @@ static const Rule rules[] = {
 	{ NULL,       NULL,       "Event Tester",   0,            0,           0,         1,        -1 },
 	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
 	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
+	{ "Sxiv",    NULL,    NULL,       	    0,     1,           0,         1,        -1 },
 };
 
 /* layout(s) */
@@ -216,8 +217,13 @@ static Key keys[] = {
 	/* description: (cmd) decrease sound volume */		{ Mod1Mask,			XK_Down,		spawn,          SHCMD("pactl set-sink-volume 0 -5% && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) mute/unmute sound */ 		{ Mod1Mask,			XK_Shift_L,		spawn,          SHCMD("pactl set-sink-mute 0 toggle && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_v,			spawn,          SHCMD("~/apps/scripts/rofi/vim_shortcuts.py") },
+	/* description: (cmd) */ 				{ Mod1Mask, 			XK_b,			spawn,          SHCMD("~/apps/scripts/rofi/bookmarks.py") },
 
 
+
+	/* description: (cmd) */ 				{ Mod1Mask, 			XK_w,			spawn,          SHCMD("sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) | xargs feh --bg-scale") },
+
+	/* description: (cmd) */ 				{ Mod1Mask, 			XK_s,			spawn,          SHCMD("~/apps/scripts/rofi/snippets.py") },
 
 
 
