@@ -86,15 +86,15 @@ static const Layout layouts[] = {
 #define MODKEY Mod4Mask
 
 #define TAGKEYS(KEY,TAG) \
-	/* description: (dwm:TAGKEYS) */ { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	/* description: (dwm:TAGKEYS) */ { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	/* description: (dwm:TAGKEYS) */ { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	/* description: (dwm:TAGKEYS) */ { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, \
+	/* description: (dwm:TAGKEYS_MACRO) */ { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+	/* description: (dwm:TAGKEYS_MACRO) */ { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	/* description: (dwm:TAGKEYS_MACRO) */ { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+	/* description: (dwm:TAGKEYS_MACRO) */ { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, \
 
 #define STACKKEYS(MOD,ACTION) \
-	/* description: (dwm:STACKKEYS) */ { MOD,	XK_j,	ACTION##stack,	{.i = INC(+1)} }, \
-	/* description: (dwm:STACKKEYS) */ { MOD,	XK_k,	ACTION##stack,	{.i = INC(-1)} }, \
-	/* description: (dwm:STACKKEYS) */ { MOD,  	XK_v,   ACTION##stack,  {.i = 0} }, \
+	/* description: (dwm:STACKKEYS_MACRO) */ { MOD,	XK_j,	ACTION##stack,	{.i = INC(+1)} }, \
+	/* description: (dwm:STACKKEYS_MACRO) */ { MOD,	XK_k,	ACTION##stack,	{.i = INC(-1)} }, \
+	/* description: (dwm:STACKKEYS_MACRO) */ { MOD,  	XK_v,   ACTION##stack,  {.i = 0} }, \
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/bash", "-c", cmd, NULL } }
@@ -131,18 +131,18 @@ ResourcePref resources[] = {
 #include "shiftview.c"
 
 static Key keys[] = {
-	/* description: (dwm:STACKKEYS) */ STACKKEYS(MODKEY,                          focus)
-	/* description: (dwm:STACKKEYS) */ STACKKEYS(MODKEY|ShiftMask,                push)
+	/* description: (dwm:STACKKEYS_MACRO_VALUES) */ STACKKEYS(MODKEY,                          focus)
+	/* description: (dwm:STACKKEYS_MACRO_VALUES) */ STACKKEYS(MODKEY|ShiftMask,                push)
 
-	/* description: (dwm:TAGKEYS) */ TAGKEYS(XK_1,		0)
-	/* description: (dwm:TAGKEYS) */ TAGKEYS(XK_2,		1)
-	/* description: (dwm:TAGKEYS) */ TAGKEYS(XK_3,		2)
-	/* description: (dwm:TAGKEYS) */ TAGKEYS(XK_4,		3)
-	/* description: (dwm:TAGKEYS) */ TAGKEYS(XK_5,		4)
-	/* description: (dwm:TAGKEYS) */ TAGKEYS(XK_6,		5)
-	/* description: (dwm:TAGKEYS) */ TAGKEYS(XK_7,		6)
-	/* description: (dwm:TAGKEYS) */ TAGKEYS(XK_8,		7)
-	/* description: (dwm:TAGKEYS) */ TAGKEYS(XK_9,		8)
+	/* description: (dwm:TAGKEYS_MACRO_VALUES) */ TAGKEYS(XK_1,		0)
+	/* description: (dwm:TAGKEYS_MACRO_VALUES) */ TAGKEYS(XK_2,		1)
+	/* description: (dwm:TAGKEYS_MACRO_VALUES) */ TAGKEYS(XK_3,		2)
+	/* description: (dwm:TAGKEYS_MACRO_VALUES) */ TAGKEYS(XK_4,		3)
+	/* description: (dwm:TAGKEYS_MACRO_VALUES) */ TAGKEYS(XK_5,		4)
+	/* description: (dwm:TAGKEYS_MACRO_VALUES) */ TAGKEYS(XK_6,		5)
+	/* description: (dwm:TAGKEYS_MACRO_VALUES) */ TAGKEYS(XK_7,		6)
+	/* description: (dwm:TAGKEYS_MACRO_VALUES) */ TAGKEYS(XK_8,		7)
+	/* description: (dwm:TAGKEYS_MACRO_VALUES) */ TAGKEYS(XK_9,		8)
 
 								/* modifier                     key        		function        argument */
 

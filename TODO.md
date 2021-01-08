@@ -7,6 +7,13 @@ cat /storage/src/dwm/config.h | grep 'description: ' | sort | sed 's/{ //g' | se
 cat /storage/src/dwm/config.h | grep 'description: ' | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\*/---/g' | sed 's/\*\///g' | sort
 cat /storage/src/dwm/config.h | grep 'description: ' | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\* description: //g' | sed 's/\*\///g' |  sort
 cat /storage/src/dwm/config.h | grep 'description: ' | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\* description: //g' | sed 's/\*\///g' | sed 's/,//g' | sed 's/\\$//g' |  sort
+cat /storage/src/dwm/config.h | grep 'description: ' | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\* description: //g' | sed 's/\*\//=>/g' | sed 's/,//g' | sed 's/\\$//g' |  sort
+cat /storage/src/dwm/config.h | grep 'description: ' | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\* description: //g' | sed 's/\*\//=>/g' | sed 's/,//g' | sed 's/\\$//g' | sed 's/\t/ /g' | sed 's/ \+/ /g' | sort
+cat /storage/src/dwm/config.h | grep 'description: ' | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\* description: //g' | sed 's/\*\//=>/g' | sed 's/,//g' | sed 's/\\$//g' | sed 's/\t/ /g' | sed 's/ \+/ /g' | sed 's/MODKEY/MOD/g' | sed 's/ShiftMask/Shift/g'| sed 's/ControlMask/Ctrl/g' | sed 's/|/\+/g' | sed 's/ XK_/\+/g' | sed 's/spawn SHCMD(//g' | sed 's/)$//g' |  sort
+cat /storage/src/dwm/config.h | grep 'description: ' | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\* description: //g' | sed 's/\*\//=>/g' | sed 's/,//g' | sed 's/\\$//g' | sed 's/\t/ /g' | sed 's/ \+/ /g' | sed 's/MODKEY/MOD/g' | sed 's/ShiftMask/Shift/g'| sed 's/ControlMask/Ctrl/g' | sed 's/|/\+/g' | sed 's/ XK_/\+/g' | sed 's/spawn SHCMD(//g' | sed 's/)$//g' | sed 's/TAGKEYS(/TAGKEYS_MACRO_VALUES::/g' | sed 's/STACKKEYS(/STACKKEYS_MACRO_VALUES::/g' | sort
+
+cat /storage/src/dwm/config.h | grep 'description: ' | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\* description: //g' | sed 's/\*\//=>/g' | sed 's/,//g' | sed 's/\\$//g' | sed 's/\t/ /g' | sed 's/ \+/ /g' | sed 's/MODKEY/MOD/g' | sed 's/ShiftMask/Shift/g'| sed 's/ControlMask/Ctrl/g' | sed 's/|/\+/g' | sed 's/ XK_/\+/g' | sed 's/spawn SHCMD(//g' | sed 's/)$//g' | sed 's/TAGKEYS(//g' | sed 's/STACKKEYS(//g' | sort
+
 ```
 
 - [ ] Instalar e configurar o khal e o vdirsyncer para o scratchpad do personal-calendar funcionar.
