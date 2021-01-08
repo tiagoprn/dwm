@@ -198,7 +198,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_i,			setlayout,	{.v = &layouts[7]} }, /* centeredfloatingmaster */
 	{ MODKEY|ShiftMask,		XK_f,			setlayout,	{.v = &layouts[8]} }, /* floating */
 
-	{ MODKEY,			XK_d,			spawn,          SHCMD("rofi -show run") },
+	{ MODKEY,			XK_d,			spawn,          SHCMD("rofi -show drun -drun-icon-theme") },
 	{ MODKEY|ShiftMask,		XK_d,			spawn,          SHCMD("dmenu_run") },
 	{ MODKEY, 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") },
 	{ MODKEY,			XK_Return,		spawn,		{.v = termcmd } },
