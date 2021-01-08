@@ -1,5 +1,3 @@
-- [VALIDATE] Remap mod+d to run the rofi apps menu, and mod+shift+d to run dmenu
-- [VALIDATE] Remap mod+z as on i3, and change the logoff dwm command if os=raspbian (`loginctl terminate-user pi`)
 - [ ] `TODO.port-from-i3.md`: Port i3 bindsyms
 
 - [ ] Add comments to all bindings on config.h, so that I can run with a rofi cheatsheet (copy from vim.cheatsheet)
@@ -9,6 +7,8 @@
 
 - [ ] Bring some i3 bindsyms to dwm using shkxd?
 
+- [x] Remap mod+d to run the rofi apps menu, and mod+shift+d to run dmenu
+- [x] Remap mod+z as on i3, and change the logoff dwm command if os=raspbian (`loginctl terminate-user pi`)
 - [x] Configure dwm autostart on `startdwm`
 - [x] Remove the keyboard shortcuts that I will not use
 - [x] Remove garbage from dwmblocks, organize and keep it more minimal.
