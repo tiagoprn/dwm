@@ -50,13 +50,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	*/
-	/* class    instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
-	{ "Gimp",     NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
-	{ TERMCLASS,   NULL,       NULL,       	    0,            0,           1,         0,        -1 },
-	{ NULL,       NULL,       "Event Tester",   0,            0,           0,         1,        -1 },
-	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
-	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
-	{ "Sxiv",    NULL,    NULL,       	    0,     1,           0,         1,        -1 },
+	/* class    		instance      		title       	 	tags mask    	isfloating   	isterminal  	noswallow  	monitor */
+	{ "Gimp",     		NULL,       		NULL,       	    	1 << 8,       	0,           	0,         	0,        	-1 },
+	{ TERMCLASS,  		NULL,       		NULL,       	    	0,            	0,           	1,         	0,        	-1 },
+	{ NULL,       		NULL,       		"Event Tester",   	0,            	0,           	0,         	1,        	-1 },
+	{ NULL,      		"spterm",    		NULL,       	    	SPTAG(0),     	1,           	1,         	0,        	-1 },
+	{ NULL,      		"spcalc",    		NULL,       	    	SPTAG(1),     	1,           	1,         	0,        	-1 },
+	{ "Sxiv",    		NULL,    		NULL,       	    	0,     		1,           	0,         	1,        	-1 },
+	{ "Arandr",    		NULL,    		NULL,       	    	0,     		1,           	0,         	1,        	-1 },
 };
 
 /* layout(s) */
@@ -218,23 +219,20 @@ static Key keys[] = {
 	/* description: (cmd) mute/unmute sound */ 		{ Mod1Mask,			XK_Shift_L,		spawn,          SHCMD("pactl set-sink-mute 0 toggle && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_v,			spawn,          SHCMD("~/apps/scripts/rofi/vim_shortcuts.py") },
 	/* description: (cmd) */ 				{ Mod1Mask, 			XK_b,			spawn,          SHCMD("~/apps/scripts/rofi/bookmarks.py") },
+	/* description: (cmd) wallpaper (m to mark) */   	{ Mod1Mask, 			XK_w,			spawn,          SHCMD("sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) | xargs feh --bg-scale") },
+	/* description: (cmd) */ 				{ Mod1Mask, 			XK_s,			spawn,          SHCMD("~/apps/scripts/rofi/snippets.sh") },
+	/* description: (cmd) */ 				{ Mod1Mask, 			XK_o,			spawn,          SHCMD("~/apps/scripts/bin/toggle_compositor.sh") },
+
+
+	/* description: (cmd) */ 				{ MODKEY, 			XK_m,			spawn,          SHCMD("arandr && reload_wallpaper.sh") },
+	/* description: (cmd) file manager - nnn */		{ MODKEY, 	 		XK_r,			spawn,          SHCMD(TERMINAL "-e /bin/bash -c 'nnn'") },
+	/* description: (cmd) file manager - pcmanfm */		{ MODKEY|ShiftMask,		XK_r,			spawn,          SHCMD("pcmanfm") },
+	/* description: (cmd) */ 				{ Mod1Mask,			XK_h,			spawn,		SHCMD(TERMINAL " -e htop") },
 
 
 
-	/* description: (cmd) */ 				{ Mod1Mask, 			XK_w,			spawn,          SHCMD("sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) | xargs feh --bg-scale") },
-
-	/* description: (cmd) */ 				{ Mod1Mask, 			XK_s,			spawn,          SHCMD("~/apps/scripts/rofi/snippets.py") },
 
 
-
-
-
-
-
-
-
-	/* description: (cmd) */ 			{ MODKEY|ShiftMask,		XK_w,			spawn,		SHCMD(TERMINAL " -e sudo nmtui") },
-	/* description: (cmd) */ 			{ MODKEY|ShiftMask,		XK_r,			spawn,		SHCMD(TERMINAL " -e htop") },
 	/* description: (cmd) */ 			{ MODKEY,			XK_Scroll_Lock,		spawn,		SHCMD("killall screenkey || screenkey &") },
 
 	/* OTHER EXAMPLES */
