@@ -2,6 +2,10 @@
 
 - [ ] Add comments to all bindings on config.h, so that I can run with a rofi cheatsheet (copy from vim.cheatsheet)
 
+```
+cat /storage/src/dwm/config.h | grep 'description: ' | sort | sed 's/{ //g' | sed 's/ }//g'  | sed 's/\/\*/---/g' | sed 's/\*\///g'
+```
+
 - [ ] Instalar e configurar o khal e o vdirsyncer para o scratchpad do personal-calendar funcionar.
 - [ ] Check if scratchpads for vim and personal-calendar are opened floating with urxvt on picom with no transparency
 

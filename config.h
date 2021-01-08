@@ -86,15 +86,15 @@ static const Layout layouts[] = {
 #define MODKEY Mod4Mask
 
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, /* description: (TAGKEYS) */ \
+	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, /* description: (TAGKEYS) */ \
+	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, /* description: (TAGKEYS) */ \
+	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, /* description: (TAGKEYS) */ \
 
 #define STACKKEYS(MOD,ACTION) \
-	{ MOD,	XK_j,	ACTION##stack,	{.i = INC(+1) } }, \
-	{ MOD,	XK_k,	ACTION##stack,	{.i = INC(-1) } }, \
-	{ MOD,  XK_v,   ACTION##stack,  {.i = 0 } }, \
+	{ MOD,	XK_j,	ACTION##stack,	{.i = INC(+1)} }, /* description: (STACKKEYS) */ \
+	{ MOD,	XK_k,	ACTION##stack,	{.i = INC(-1)} }, /* description: (STACKKEYS) */ \
+	{ MOD,  XK_v,   ACTION##stack,  {.i = 0} }, /* description: (STACKKEYS) */ \
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/bash", "-c", cmd, NULL } }
@@ -131,87 +131,89 @@ ResourcePref resources[] = {
 #include "shiftview.c"
 
 static Key keys[] = {
-	STACKKEYS(MODKEY,                          focus)
-	STACKKEYS(MODKEY|ShiftMask,                push)
+	STACKKEYS(MODKEY,                          focus) /* description: (STACKKEYS) */
+	STACKKEYS(MODKEY|ShiftMask,                push) /* description: (STACKKEYS) */
 
-	TAGKEYS(XK_1,		0)
-	TAGKEYS(XK_2,		1)
-	TAGKEYS(XK_3,		2)
-	TAGKEYS(XK_4,		3)
-	TAGKEYS(XK_5,		4)
-	TAGKEYS(XK_6,		5)
-	TAGKEYS(XK_7,		6)
-	TAGKEYS(XK_8,		7)
-	TAGKEYS(XK_9,		8)
+	TAGKEYS(XK_1,		0) /* description: (TAGKEYS) */
+	TAGKEYS(XK_2,		1) /* description: (TAGKEYS) */
+	TAGKEYS(XK_3,		2) /* description: (TAGKEYS) */
+	TAGKEYS(XK_4,		3) /* description: (TAGKEYS) */
+	TAGKEYS(XK_5,		4) /* description: (TAGKEYS) */
+	TAGKEYS(XK_6,		5) /* description: (TAGKEYS) */
+	TAGKEYS(XK_7,		6) /* description: (TAGKEYS) */
+	TAGKEYS(XK_8,		7) /* description: (TAGKEYS) */
+	TAGKEYS(XK_9,		8) /* description: (TAGKEYS) */
 
 	/* modifier                     key        		function        argument */
 
-	{ MODKEY|ShiftMask,		XK_0,			tag,		{.ui = ~0 } },
-	{ MODKEY,			XK_BackSpace,		killclient,	{0} },
-	{ MODKEY|ShiftMask,		XK_a,			defaultgaps,	{0} },
-	{ MODKEY,			XK_space,		zoom,		{0} },
+	{ MODKEY|ShiftMask,		XK_0,			tag,		{.ui = ~0 } }, /* description: */
+	{ MODKEY,			XK_BackSpace,		killclient,	{0} }, /* description: */
+	{ MODKEY|ShiftMask,		XK_a,			defaultgaps,	{0} }, /* description: */
+	{ MODKEY,			XK_space,		zoom,		{0} }, /* description: */
 
-	{ MODKEY,			XK_h,			setmfact,	{.f = -0.05} },
-	{ MODKEY,			XK_l,			setmfact,      	{.f = +0.05} },
+	{ MODKEY,			XK_h,			setmfact,	{.f = -0.05} }, /* description: */
+	{ MODKEY,			XK_l,			setmfact,      	{.f = +0.05} }, /* description: */
 
-	{ MODKEY,			XK_o,			incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,		XK_o,			incnmaster,     {.i = -1 } },
+	{ MODKEY,			XK_o,			incnmaster,     {.i = +1} }, /* description: */
+	{ MODKEY|ShiftMask,		XK_o,			incnmaster,     {.i = -1} }, /* description: */
 
-	{ MODKEY,			XK_Right,		focusmon,	{.i = +1 } },
-	{ MODKEY,			XK_Left,		focusmon,	{.i = -1 } },
+	{ MODKEY,			XK_Right,		focusmon,	{.i = +1} }, /* description: */
+	{ MODKEY,			XK_Left,		focusmon,	{.i = -1} }, /* description: */
 
-	{ MODKEY,			XK_p,			incrgaps,	{.i = +3 } },
-	{ MODKEY,			XK_x,			incrgaps,	{.i = -3 } },
+	{ MODKEY,			XK_p,			incrgaps,	{.i = +3} }, /* description: */
+	{ MODKEY,			XK_x,			incrgaps,	{.i = -3} }, /* description: */
 
-	{ MODKEY|ShiftMask,		XK_Left,		tagmon,		{.i = -1 } },
-	{ MODKEY|ShiftMask,		XK_Right,		tagmon,		{.i = +1 } },
+	{ MODKEY|ShiftMask,		XK_Left,		tagmon,		{.i = -1} }, /* description: */
+	{ MODKEY|ShiftMask,		XK_Right,		tagmon,		{.i = +1} }, /* description: */
 
-	{ MODKEY,			XK_0,			view,		{.ui = ~0 } },
-	{ MODKEY,			XK_backslash,		view,		{0} },
-	{ MODKEY,			XK_Tab,			view,		{0} },
+	{ MODKEY,			XK_0,			view,		{.ui = ~0} }, /* description: */
+	{ MODKEY,			XK_backslash,		view,		{0} }, /* description: */
+	{ MODKEY,			XK_Tab,			view,		{0} }, /* description: */
 
-	{ MODKEY,			XK_Page_Up,		shiftview,	{ .i = -1 } },
-	{ MODKEY,			XK_Page_Down,		shiftview,	{ .i = +1 } },
-	{ MODKEY,			XK_g,			shiftview,	{ .i = -1 } },
-	{ MODKEY,			XK_semicolon,		shiftview,	{ .i = 1 } },
+	{ MODKEY,			XK_Page_Up,		shiftview,	{.i = -1} }, /* description: */
+	{ MODKEY,			XK_Page_Down,		shiftview,	{.i = +1} }, /* description: */
+	{ MODKEY,			XK_g,			shiftview,	{.i = -1} }, /* description: */
+	{ MODKEY,			XK_semicolon,		shiftview,	{.i = 1} }, /* description: */
 
-	{ MODKEY|ShiftMask,		XK_Page_Down,		shifttag,	{ .i = +1 } },
-	{ MODKEY|ShiftMask,		XK_Page_Up,		shifttag,	{ .i = -1 } },
-	{ MODKEY|ShiftMask,		XK_semicolon,		shifttag,	{ .i = 1 } },
-	{ MODKEY|ShiftMask,		XK_g,			shifttag,	{ .i = -1 } },
+	{ MODKEY|ShiftMask,		XK_Page_Down,		shifttag,	{.i = +1} }, /* description: */
+	{ MODKEY|ShiftMask,		XK_Page_Up,		shifttag,	{.i = -1} }, /* description: */
+	{ MODKEY|ShiftMask,		XK_semicolon,		shifttag,	{.i = 1} }, /* description: */
+	{ MODKEY|ShiftMask,		XK_g,			shifttag,	{.i = -1} }, /* description: */
 
-	{ MODKEY,			XK_a,			togglegaps,	{0} },
-	{ MODKEY,			XK_s,			togglesticky,	{0} },
-	{ MODKEY,			XK_f,			togglefullscr,	{0} },
-	{ MODKEY|ShiftMask,		XK_Return,		togglescratch,	{.ui = 0} }, /* scratchpad 1 */
-	{ MODKEY|ControlMask,		XK_Return,		togglescratch,	{.ui = 1} }, /* scratchpad 2 */
-	{ MODKEY,			XK_b,			togglebar,	{0} },
-	{ MODKEY|ShiftMask,		XK_space,		togglefloating,	{0} },
+	{ MODKEY,			XK_a,			togglegaps,	{0} }, /* description: */
+	{ MODKEY,			XK_s,			togglesticky,	{0} }, /* description: */
+	{ MODKEY,			XK_f,			togglefullscr,	{0} }, /* description: */
+	{ MODKEY|ShiftMask,		XK_Return,		togglescratch,	{.ui = 0} }, /* description: scratchpad 1 */
+	{ MODKEY|ControlMask,		XK_Return,		togglescratch,	{.ui = 1} }, /* description: scratchpad 2 */
+	{ MODKEY,			XK_b,			togglebar,	{0} }, /* description: */
+	{ MODKEY|ShiftMask,		XK_space,		togglefloating,	{0} }, /* description: */
 
-	{ MODKEY,			XK_t,			setlayout,	{.v = &layouts[0]} }, /* tile */
-	{ MODKEY|ShiftMask,		XK_t,			setlayout,	{.v = &layouts[1]} }, /* bstack */
-	{ MODKEY,			XK_y,			setlayout,	{.v = &layouts[2]} }, /* spiral */
-	{ MODKEY|ShiftMask,		XK_y,			setlayout,	{.v = &layouts[3]} }, /* dwindle */
-	{ MODKEY,			XK_u,			setlayout,	{.v = &layouts[4]} }, /* deck */
-	{ MODKEY|ShiftMask,		XK_u,			setlayout,	{.v = &layouts[5]} }, /* monocle */
-	{ MODKEY,			XK_i,			setlayout,	{.v = &layouts[6]} }, /* centeredmaster */
-	{ MODKEY|ShiftMask,		XK_i,			setlayout,	{.v = &layouts[7]} }, /* centeredfloatingmaster */
-	{ MODKEY|ShiftMask,		XK_f,			setlayout,	{.v = &layouts[8]} }, /* floating */
+	{ MODKEY,			XK_t,			setlayout,	{.v = &layouts[0]} }, /* description: tile layout */
+	{ MODKEY|ShiftMask,		XK_t,			setlayout,	{.v = &layouts[1]} }, /* description: bstack layout */
+	{ MODKEY,			XK_y,			setlayout,	{.v = &layouts[2]} }, /* description: spiral layout */
+	{ MODKEY|ShiftMask,		XK_y,			setlayout,	{.v = &layouts[3]} }, /* description: dwindle layout */
+	{ MODKEY,			XK_u,			setlayout,	{.v = &layouts[4]} }, /* description: deck layout */
+	{ MODKEY|ShiftMask,		XK_u,			setlayout,	{.v = &layouts[5]} }, /* description: monocle layout */
+	{ MODKEY,			XK_i,			setlayout,	{.v = &layouts[6]} }, /* description: centeredmaster layout */
+	{ MODKEY|ShiftMask,		XK_i,			setlayout,	{.v = &layouts[7]} }, /* description: centeredfloatingmaster layout */
+	{ MODKEY|ShiftMask,		XK_f,			setlayout,	{.v = &layouts[8]} }, /* description: floating layout */
 
-	{ MODKEY,			XK_d,			spawn,          SHCMD("rofi -show drun -drun-icon-theme") },
-	{ MODKEY|ShiftMask,		XK_d,			spawn,          SHCMD("dmenu_run") },
-	{ MODKEY, 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") },
-	{ MODKEY,			XK_Return,		spawn,		{.v = termcmd } },
-	{ MODKEY,			XK_minus,		spawn,		SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask,		XK_minus,		spawn,		SHCMD("pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,			XK_equal,		spawn,		SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask,		XK_equal,		spawn,		SHCMD("pamixer --allow-boost -i 15; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask,		XK_w,			spawn,		SHCMD(TERMINAL " -e sudo nmtui") },
-	{ MODKEY|ShiftMask,		XK_r,			spawn,		SHCMD(TERMINAL " -e htop") },
-	{ MODKEY|ShiftMask,		XK_m,			spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,			XK_F4,			spawn,		SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,			XK_Scroll_Lock,		spawn,		SHCMD("killall screenkey || screenkey &") },
+	{ MODKEY,			XK_d,			spawn,          SHCMD("rofi -show drun -drun-icon-theme") }, /* description: */
+	{ MODKEY, 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") }, /* description: */
+	{ MODKEY|ShiftMask,		XK_d,			spawn,          SHCMD("dmenu_run") }, /* description: */
+	{ MODKEY, 			XK_c,			spawn,          SHCMD("clippy_rofi.py") }, /* description: */
+	{ MODKEY,			XK_Return,		spawn,		{.v = termcmd} }, /* description: */
+	{ MODKEY,			XK_minus,		spawn,		SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") }, /* description: */
+	{ MODKEY|ShiftMask,		XK_minus,		spawn,		SHCMD("pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)") }, /* description: */
+	{ MODKEY,			XK_equal,		spawn,		SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") }, /* description: */
+	{ MODKEY|ShiftMask,		XK_equal,		spawn,		SHCMD("pamixer --allow-boost -i 15; kill -44 $(pidof dwmblocks)") }, /* description: */
+	{ MODKEY|ShiftMask,		XK_w,			spawn,		SHCMD(TERMINAL " -e sudo nmtui") }, /* description: */
+	{ MODKEY|ShiftMask,		XK_r,			spawn,		SHCMD(TERMINAL " -e htop") }, /* description: */
+	{ MODKEY|ShiftMask,		XK_m,			spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") }, /* description: */
+	{ MODKEY,			XK_F4,			spawn,		SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") }, /* description: */
+	{ MODKEY,			XK_Scroll_Lock,		spawn,		SHCMD("killall screenkey || screenkey &") }, /* description: */
 
+	/* OTHER EXAMPLES */
 	/* { MODKEY,			XK_e,			spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") }, */
 	/* { 0,				XK_Print,		spawn,		SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") }, */
 	/* { MODKEY|ShiftMask,		XK_n,			spawn,		SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") }, */

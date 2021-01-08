@@ -3,7 +3,6 @@
 ## BINDSYMS
 
 ```
-bindsym Mod1+c exec --no-startup-id "/home/pi/apps/scripts/bin/clippy_rofi.py"
 bindsym $mod+Shift+Return exec --no-startup-id st -f 'Iosevka:size=12:antialias=true:autohint=true' -e bash -c "TERM=screen-256color /home/pi/apps/scripts/bin/start_random_tmux_session_name.sh"
 bindsym Mod1+Tab exec --no-startup-id rofi -show window -drun-icon-theme
 bindsym $mod+e restart dwm (get the command used on the "?" icon on the topbar)
