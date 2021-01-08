@@ -209,12 +209,12 @@ static Key keys[] = {
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_d,			spawn,          SHCMD("notify-send -u critical 'Restarting dwm...' && pkill -HUP dwm") },
 	/* description: (cmd) increase screen brightness */ 	{ Mod1Mask|ShiftMask,		XK_Up,			spawn,          SHCMD("xbacklight -inc 20") },
 	/* description: (cmd) decrease screen brightness */	{ Mod1Mask|ShiftMask,		XK_Down,		spawn,          SHCMD("xbacklight -dec 20") },
-	/* description: (cmd) */ 				{ Mod1Mask,			XK_Space,		spawn,          SHCMD("playerctl play-pause && kill -44 $(pidof dwmblocks)") },
+	/* description: (cmd) */ 				{ Mod1Mask,			XK_space,		spawn,          SHCMD("playerctl play-pause && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_Right,		spawn,          SHCMD("playerctl next && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_Left,		spawn,          SHCMD("playerctl previous && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) increase sound volume */		{ Mod1Mask,			XK_Up,			spawn,          SHCMD("pactl set-sink-volume 0 +5% && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) decrease sound volume */		{ Mod1Mask,			XK_Down,		spawn,          SHCMD("pactl set-sink-volume 0 -5% && kill -44 $(pidof dwmblocks)") },
-	/* description: (cmd) mute/unmute sound */ 		{ Mod1Mask,			XK_Shift,		spawn,          SHCMD("pactl set-sink-mute 0 toggle && kill -44 $(pidof dwmblocks)") },
+	/* description: (cmd) mute/unmute sound */ 		{ Mod1Mask,			XK_Shift_L,		spawn,          SHCMD("pactl set-sink-mute 0 toggle && kill -44 $(pidof dwmblocks)") },
 
 
 
