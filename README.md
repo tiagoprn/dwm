@@ -26,3 +26,15 @@ I haven't kept `man dwm`/`dwm.1` updated though. PRs welcome on that, lol.
 ## Please install `libxft-bgra`!
 
 This build of dwm does not block color emoji in the status/info bar, so you must install [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/) from the AUR, which fixes a libxft color emoji rendering problem, otherwise dwm will crash upon trying to render one. Hopefully this fix will be in all libxft soon enough.
+
+
+## COMMANDS to check my keybindings
+
+```
+
+dwm-print-all-mapped-keys.sh  | grep 'Alt'
+
+dwm-print-cheatsheet.sh | grep 'Alt'
+
+```
+
