@@ -14,6 +14,7 @@ dwm-print-cheatsheet.sh | grep 'Alt'
 ## BINDSYMS
 
 ```
+TODO: check below why the last one runs, and the other ones on tmux not. Maybe I can start all with /bin/bash and add xdotool to type the tmux load commands once there...
 
 - [ ] MOD+n /home/pi/apps/scripts/bin/vim-notes.sh &
 - [ ] Mod1+l /home/pi/apps/scripts/bin/i3-personal-calendar.sh &
