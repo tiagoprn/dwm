@@ -36,7 +36,7 @@ typedef struct {
 /* The option -title below sets WM_NAME, or the window name, that is passed here so the scratchpad functionality works. */
 
 
-const char *spcmd1[] = {"st", "-n", "dropdownterm", "-g", "120x34", NULL};
+const char *spcmd1[] = {"st", "-n", "dropdownterm", "-c", "Dropdownterm", "-g", "120x45", NULL};
 const char *spcmd2[] = {"pcmanfm", NULL };
 
 static Sp scratchpads[] = {
