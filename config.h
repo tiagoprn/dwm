@@ -36,21 +36,13 @@ typedef struct {
 /* The option -title below sets WM_NAME, or the window name, that is passed here so the scratchpad functionality works. */
 
 
-/* const char *spcmd1[] = {"urxvt", "-hold", "-title", "vimnotes", "-e", "bash", "-c", "~/apps/scripts/bin/vim-notes.sh", NULL }; */
-/* const char *spcmd2[] = {"urxvt", "-hold", "-title", "personalcalendar", "-e", "bash", "-c", "~/apps/scripts/bin/i3-personal-calendar.sh", NULL }; */
-/* const char *spcmd3[] = {"urxvt", "-hold", "-title", "dropdownterm", "-e", "bash", "-c", "~/apps/scripts/bin/dropdown-term.sh", NULL }; */
-
-const char *spcmd1[] = {"bash", "-c", "~/apps/scripts/bin/vim-notes.sh", NULL };
-const char *spcmd2[] = {"bash", "-c", "~/apps/scripts/bin/i3-personal-calendar.sh", NULL };
-const char *spcmd3[] = {"st", "-n", "dropdownterm", "-g", "120x34", NULL};
-/* const char *spcmd4[] = {"chromium-browser", NULL }; */
+const char *spcmd1[] = {"st", "-n", "dropdownterm", "-g", "120x34", NULL};
+const char *spcmd2[] = {"pcmanfm", NULL };
 
 static Sp scratchpads[] = {
 	/* name          		cmd  */
-	{"vimnotes",      		spcmd1},
-	{"personalcalendar", 	     	spcmd2},
-	{"dropdownterm",      		spcmd3},
-	/* {"chromium",      		spcmd4}, */
+	{"dropdownterm",      		spcmd1},
+	{"filemanager",      		spcmd2},
 };
 
 /* tagging */
@@ -65,10 +57,8 @@ static const Rule rules[] = {
 	{ "Gimp",     		NULL,       		NULL,       	    	1 << 8,       	0,           	0,         	0,        	-1 },
 	{ TERMCLASS,  		NULL,       		NULL,       	    	0,            	0,           	1,         	0,        	-1 },
 	{ NULL,       		NULL,       		"Event Tester",   	0,            	0,           	0,         	1,        	-1 },
-	{ NULL,      		"vimnotes",    		NULL,       	    	SPTAG(0),     	1,           	1,         	1,        	-1 },
-	{ NULL,      		"personalcalendar", 	NULL,       	    	SPTAG(1),     	1,           	1,         	1,        	-1 },
-	{ NULL,      		"dropdownterm",    	NULL,       	    	SPTAG(2),     	1,           	1,         	1,        	-1 },
-	/* { "Chromium-browser",	NULL,  		  	NULL,       	    	SPTAG(3),     	1,           	1,         	1,        	-1 }, */
+	{ NULL,      		"dropdownterm",    	NULL,       	    	SPTAG(0),     	1,           	1,         	1,        	-1 },
+	{ "Pcmanfm",		NULL,  		  	NULL,       	    	SPTAG(1),     	1,           	1,         	1,        	-1 },
 	{ "Sxiv",    		NULL,    		NULL,       	    	0,     		1,           	0,         	1,        	-1 },
 	{ "Arandr",    		NULL,    		NULL,       	    	0,     		1,           	0,         	1,        	-1 },
 };
@@ -198,10 +188,8 @@ static Key keys[] = {
 	/* description: (dwm) */ 				{ MODKEY,			XK_a,			togglegaps,	{0} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_s,			togglesticky,	{0} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_f,			togglefullscr,	{0} },
-	/* description: (dwm:scratchpad) vimnotes */ 		{ MODKEY,			XK_n,			togglescratch,	{.ui = 0} },
-	/* description: (dwm:scratchpad) personalcalendar */ 	{ Mod1Mask,			XK_l,			togglescratch,	{.ui = 1} },
-	/* description: (dwm:scratchpad) dropdownterm */ 	{ Mod1Mask,			XK_t,			togglescratch,	{.ui = 2} },
-	/* description: (dwm:scratchpad) chromium 		{ Mod1Mask,			XK_a,			togglescratch,	{.ui = 3} }, */
+	/* description: (dwm:scratchpad) dropdownterm */ 	{ Mod1Mask,			XK_t,			togglescratch,	{.ui = 0} },
+	/* description: (dwm:scratchpad) filemanager */		{ MODKEY,			XK_n,			togglescratch,	{.ui = 1} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_b,			togglebar,	{0} },
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_space,		togglefloating,	{0} },
 
