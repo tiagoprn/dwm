@@ -222,12 +222,13 @@ static Key keys[] = {
 	/* description: (cmd) wallpaper (m to mark) */   	{ Mod1Mask, 			XK_w,			spawn,          SHCMD("sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) | xargs feh --bg-scale") },
 	/* description: (cmd) */ 				{ Mod1Mask, 			XK_s,			spawn,          SHCMD("~/apps/scripts/rofi/snippets.sh") },
 	/* description: (cmd) */ 				{ Mod1Mask, 			XK_o,			spawn,          SHCMD("~/apps/scripts/bin/toggle_compositor.sh") },
-
-
 	/* description: (cmd) */ 				{ MODKEY, 			XK_m,			spawn,          SHCMD("arandr && reload_wallpaper.sh") },
-	/* description: (cmd) file manager - nnn */		{ MODKEY, 	 		XK_r,			spawn,          SHCMD(TERMINAL "-e /bin/bash -c 'nnn'") },
+
+
+
+	/* description: (cmd) file manager - nnn */		{ MODKEY, 	 		XK_r,			spawn,          SHCMD("urxvt -name nnn --hold -e nnn") },
 	/* description: (cmd) file manager - pcmanfm */		{ MODKEY|ShiftMask,		XK_r,			spawn,          SHCMD("pcmanfm") },
-	/* description: (cmd) */ 				{ Mod1Mask,			XK_h,			spawn,		SHCMD(TERMINAL " -e htop") },
+	/* description: (cmd) */ 				{ Mod1Mask,			XK_h,			spawn,		SHCMD("urxvt -name nnn --hold -e htop") },
 
 
 
@@ -236,6 +237,9 @@ static Key keys[] = {
 	/* description: (cmd) */ 			{ MODKEY,			XK_Scroll_Lock,		spawn,		SHCMD("killall screenkey || screenkey &") },
 
 	/* OTHER EXAMPLES */
+
+	/* urxvt -name vim --hold -e bash -c "TERM=screen-256color $TMUXP_BIN load /storage/src/devops/tmuxp/notes.yml"; */
+
 	/* { MODKEY,			XK_e,			spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") }, */
 	/* { 0,				XK_Print,		spawn,		SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") }, */
 	/* { MODKEY|ShiftMask,		XK_n,			spawn,		SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") }, */
