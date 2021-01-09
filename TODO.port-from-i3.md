@@ -17,23 +17,21 @@ dwm-print-cheatsheet.sh | grep 'Alt'
 TODO: check below why the last one runs, and the other ones on tmux not. Maybe I can start all with /bin/bash and add xdotool to type the tmux load commands once there...
 
 - [ ] MOD+n /home/pi/apps/scripts/bin/vim-notes.sh &
-- [ ] Mod1+l /home/pi/apps/scripts/bin/i3-personal-calendar.sh &
-- [x] Mod1+t /home/pi/apps/scripts/bin/dropdown-term.sh &
 
-- [ ] Install firefox from flatpak
+- [ ] Mod1+l /home/pi/apps/scripts/bin/i3-personal-calendar.sh &
+
+- [x] Mod1+t /home/pi/apps/scripts/bin/dropdown-term.sh &
 
 ---
 
 - [ ] bindsym $mod+Shift+n exec --no-startup-id networkmanager_dmenu
 
-- [ ] bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flatpak run --filesystem=host org.flameshot.Flameshot full -p ~/screenshots -d 2000"
-- [ ] bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots &&  flatpak run --filesystem=host org.flameshot.Flameshot gui -p ~/screenshots -d 2000"
-
-- [ ] bindsym Mod1+b exec --no-startup-id "flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal -C ~/.local/share/qutebrowser/personal/config/config.py"
-- [ ] bindsym Mod1+Shift+b exec --no-startup-id "flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/work/dafiti -C ~/.local/share/qutebrowser/work/dafiti/config/config.py"
-
 - [ ] a command to see the desktop, without the windows
 
+- [x] bindsym Mod1+b exec --no-startup-id "flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal -C ~/.local/share/qutebrowser/personal/config/config.py"
+- [x] bindsym Mod1+Shift+b exec --no-startup-id "flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/work/dafiti -C ~/.local/share/qutebrowser/work/dafiti/config/config.py"
+- [x] (Compile and install flameshot) bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000"
+- [x] bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots &&  flameshot gui -p ~/screenshots -d 2000"
 - [x] bindsym Mod1+v exec --no-startup-id pavucontrol
 - [x] bindsym Mod1+k exec --no-startup-id "/home/pi/apps/scripts/rofi/toggle_keyboards.py"
 - [x] Mod1+Shift+k /home/pi/apps/scripts/bin/keyboard-backlight.sh &
