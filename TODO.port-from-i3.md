@@ -3,14 +3,14 @@
 ## BINDSYMS
 
 ```
-- [ ] bindsym Mod1+o exec --no-startup-id pavucontrol
+- [ ] bindsym Mod1+v exec --no-startup-id pavucontrol
 - [ ] bindsym Mod1+y exec --no-startup-id /home/pi/apps/scripts/bin/zenity-video-launcher.sh
 - [ ] bindsym Mod1+k exec --no-startup-id "/home/pi/apps/scripts/rofi/toggle_keyboards.py"
-- [ ] notify-send 'Activating keyboard backlight...' --urgency low; /home/pi/apps/scripts/bin/keyboard-backlight.sh &
+- [ ] Mod1+Shift+k /home/pi/apps/scripts/bin/keyboard-backlight.sh &
 
-- [ ] /home/pi/apps/scripts/bin/i3-vim.sh & (edit script to use urxvt like examples on `dwm/config.h`)
-- [ ] /home/pi/apps/scripts/bin/i3-personal-calendar.sh & (edit script to use urxvt like examples on `dwm/config.h`)
-- [ ] /home/pi/apps/scripts/bin/i3-dashboard.sh & (edit script to use urxvt like examples on `dwm/config.h`)
+- [ ] Mod1+n /home/pi/apps/scripts/bin/vim-notes.sh &
+- [ ] Mod1+l /home/pi/apps/scripts/bin/i3-personal-calendar.sh &
+- [ ] Mod1+t /home/pi/apps/scripts/bin/dropdown-term.sh &
 
 - [ ] bindsym $mod+Shift+n exec --no-startup-id networkmanager_dmenu
 
