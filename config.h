@@ -34,12 +34,15 @@ typedef struct {
 } Sp;
 
 /* The option --title below sets WM_NAME, or the window name, that is passed here so the scratchpad functionality works. */
-const char *spcmd1[] = {"urxvt", "-hold", "--title", "spterm", "-e", "/home/pi/apps/scripts/bin/i3-vim.sh", NULL };
-const char *spcmd2[] = {"urxvt", "-hold", "--title", "spcalc", "-e", "/home/pi/apps/scripts/bin/i3-personal-calendar.sh", NULL };
+const char *spcmd1[] = {"urxvt", "-hold", "-title", "vimnotes", "-e", "bash", "-c", "~/apps/scripts/bin/vim-notes.sh", NULL };
+const char *spcmd2[] = {"urxvt", "-hold", "-title", "personalcalendar", "-e", "bash", "-c", "~/apps/scripts/bin/i3-personal-calendar.sh", NULL };
+const char *spcmd3[] = {"urxvt", "-hold", "-title", "dropdownterm", "-e", "bash", "-c", "~/apps/scripts/bin/dropdown-term.sh", NULL };
+
 static Sp scratchpads[] = {
-	/* name          cmd  */
-	{"spterm",      spcmd1},
-	{"spcalc",      spcmd2},
+	/* name          		cmd  */
+	{"vimnotes",      		spcmd1},
+	{"personalcalendar", 	     	spcmd2},
+	{"dropdownterm",      		spcmd3},
 };
 
 /* tagging */
@@ -54,8 +57,9 @@ static const Rule rules[] = {
 	{ "Gimp",     		NULL,       		NULL,       	    	1 << 8,       	0,           	0,         	0,        	-1 },
 	{ TERMCLASS,  		NULL,       		NULL,       	    	0,            	0,           	1,         	0,        	-1 },
 	{ NULL,       		NULL,       		"Event Tester",   	0,            	0,           	0,         	1,        	-1 },
-	{ NULL,      		"spterm",    		NULL,       	    	SPTAG(0),     	1,           	1,         	0,        	-1 },
-	{ NULL,      		"spcalc",    		NULL,       	    	SPTAG(1),     	1,           	1,         	0,        	-1 },
+	{ NULL,      		"vimnotes",    		NULL,       	    	SPTAG(0),     	1,           	1,         	1,        	-1 },
+	{ NULL,      		"personalcalendar", 	NULL,       	    	SPTAG(1),     	1,           	1,         	1,        	-1 },
+	{ NULL,      		"dropdownterm",    	NULL,       	    	SPTAG(2),     	1,           	1,         	1,        	-1 },
 	{ "Sxiv",    		NULL,    		NULL,       	    	0,     		1,           	0,         	1,        	-1 },
 	{ "Arandr",    		NULL,    		NULL,       	    	0,     		1,           	0,         	1,        	-1 },
 };
@@ -185,8 +189,9 @@ static Key keys[] = {
 	/* description: (dwm) */ 				{ MODKEY,			XK_a,			togglegaps,	{0} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_s,			togglesticky,	{0} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_f,			togglefullscr,	{0} },
-	/* description: (dwm) scratchpad 1 */ 			{ ControlMask|Mod1Mask,		1,			togglescratch,	{.ui = 0} },
-	/* description: (dwm) scratchpad 2 */ 			{ ControlMask|Mod1Mask,		2,			togglescratch,	{.ui = 1} },
+	/* description: (dwm:scratchpad) vimnotes */ 		{ MODKEY,			XK_n,			togglescratch,	{.ui = 0} },
+	/* description: (dwm:scratchpad) personalcalendar */ 	{ Mod1Mask,			XK_l,			togglescratch,	{.ui = 1} },
+	/* description: (dwm:scratchpad) dropdownterm */ 	{ Mod1Mask,			XK_t,			togglescratch,	{.ui = 2} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_b,			togglebar,	{0} },
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_space,		togglefloating,	{0} },
 
@@ -206,7 +211,7 @@ static Key keys[] = {
 	/* description: (cmd) */ 				{ MODKEY, 			XK_c,			spawn,          SHCMD("clippy_rofi.py") },
 	/* description: (cmd) */ 				{ MODKEY,			XK_Return,		spawn,		{.v = termcmd} },
 	/* description: (cmd) */ 				{ MODKEY, 			XK_d,			spawn,          SHCMD("~/apps/scripts/rofi/dwm_cheatsheet.sh") },
-	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_Return,		spawn,          SHCMD("st -e bash -c 'TERM=screen-256color /home/pi/apps/scripts/bin/start_random_tmux_session_name.sh'") },
+	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_Return,		spawn,          SHCMD("st -e bash -c 'TERM=screen-256color ~/apps/scripts/bin/start_random_tmux_session_name.sh'") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_Tab,			spawn,          SHCMD("rofi -show window -drun-icon-theme") },
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_d,			spawn,          SHCMD("notify-send -u critical 'Restarting dwm...' && pkill -HUP dwm") },
 	/* description: (cmd) increase screen brightness */ 	{ Mod1Mask|ShiftMask,		XK_Up,			spawn,          SHCMD("xbacklight -inc 20") },
@@ -226,14 +231,14 @@ static Key keys[] = {
 	/* description: (cmd) file manager - nnn */		{ MODKEY, 	 		XK_r,			spawn,          SHCMD("urxvt -name nnn --hold -e nnn") },
 	/* description: (cmd) file manager - pcmanfm */		{ MODKEY|ShiftMask,		XK_r,			spawn,          SHCMD("pcmanfm") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_h,			spawn,		SHCMD("urxvt -name nnn --hold -e htop") },
-
-
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_r,			spawn,		SHCMD("lxappearance") },
-	/* description: (cmd) */ 				{ Mod1Mask,			XK_c,			spawn,		SHCMD("/home/pi/apps/scripts/bin/customize_capslock.sh") },
+	/* description: (cmd) */ 				{ Mod1Mask,			XK_c,			spawn,		SHCMD("~/apps/scripts/bin/customize_capslock.sh") },
+	/* description: (cmd) echo keys typed on screen */	{ Mod1Mask,			XK_n,			spawn,		SHCMD("killall screenkey || screenkey &") },
+	/* description: (cmd) */ 				{ Mod1Mask,			XK_v,			spawn,		SHCMD("pavucontrol") },
+	/* description: (cmd) */ 				{ Mod1Mask,			XK_k,			spawn,		SHCMD("~/apps/scripts/rofi/toggle_keyboards.py") },
+	/* description: (cmd) */ 				{ Mod1Mask|ShiftMask,		XK_k,			spawn,		SHCMD("~/apps/scripts/bin/keyboard-backlight.sh") },
 
 
-
-	/* description: (cmd) */ 			{ MODKEY,			XK_Scroll_Lock,		spawn,		SHCMD("killall screenkey || screenkey &") },
 
 	/* OTHER EXAMPLES */
 

@@ -1,16 +1,27 @@
 ---
 
+## COMMANDS
+
+```
+
+dwm-print-all-mapped-keys.sh  | grep 'Alt'
+
+dwm-print-cheatsheet.sh | grep 'Alt'
+
+```
+
+
 ## BINDSYMS
 
 ```
-- [ ] bindsym Mod1+v exec --no-startup-id pavucontrol
-- [ ] bindsym Mod1+y exec --no-startup-id /home/pi/apps/scripts/bin/zenity-video-launcher.sh
-- [ ] bindsym Mod1+k exec --no-startup-id "/home/pi/apps/scripts/rofi/toggle_keyboards.py"
-- [ ] Mod1+Shift+k /home/pi/apps/scripts/bin/keyboard-backlight.sh &
 
-- [ ] Mod1+n /home/pi/apps/scripts/bin/vim-notes.sh &
+- [ ] MOD+n /home/pi/apps/scripts/bin/vim-notes.sh &
 - [ ] Mod1+l /home/pi/apps/scripts/bin/i3-personal-calendar.sh &
-- [ ] Mod1+t /home/pi/apps/scripts/bin/dropdown-term.sh &
+- [x] Mod1+t /home/pi/apps/scripts/bin/dropdown-term.sh &
+
+- [ ] Install firefox from flatpak
+
+---
 
 - [ ] bindsym $mod+Shift+n exec --no-startup-id networkmanager_dmenu
 
@@ -22,6 +33,9 @@
 
 - [ ] a command to see the desktop, without the windows
 
+- [x] bindsym Mod1+v exec --no-startup-id pavucontrol
+- [x] bindsym Mod1+k exec --no-startup-id "/home/pi/apps/scripts/rofi/toggle_keyboards.py"
+- [x] Mod1+Shift+k /home/pi/apps/scripts/bin/keyboard-backlight.sh &
 - [x] bindsym Mod1+r exec --no-startup-id lxappearance
 - [x] bindsym $mod+c exec --no-startup-id "/home/pi/apps/scripts/bin/customize_capslock.sh"
 - [x] bindsym $mod+n exec --no-startup-id "notify-send 'Launching pcmanfm...' --urgency low; pcmanfm"
