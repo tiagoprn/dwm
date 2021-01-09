@@ -33,10 +33,16 @@ typedef struct {
 	const void *cmd;
 } Sp;
 
-/* The option --title below sets WM_NAME, or the window name, that is passed here so the scratchpad functionality works. */
-const char *spcmd1[] = {"urxvt", "-hold", "-title", "vimnotes", "-e", "bash", "-c", "~/apps/scripts/bin/vim-notes.sh", NULL };
-const char *spcmd2[] = {"urxvt", "-hold", "-title", "personalcalendar", "-e", "bash", "-c", "~/apps/scripts/bin/i3-personal-calendar.sh", NULL };
-const char *spcmd3[] = {"urxvt", "-hold", "-title", "dropdownterm", "-e", "bash", "-c", "~/apps/scripts/bin/dropdown-term.sh", NULL };
+/* The option -title below sets WM_NAME, or the window name, that is passed here so the scratchpad functionality works. */
+
+
+/* const char *spcmd1[] = {"urxvt", "-hold", "-title", "vimnotes", "-e", "bash", "-c", "~/apps/scripts/bin/vim-notes.sh", NULL }; */
+/* const char *spcmd2[] = {"urxvt", "-hold", "-title", "personalcalendar", "-e", "bash", "-c", "~/apps/scripts/bin/i3-personal-calendar.sh", NULL }; */
+/* const char *spcmd3[] = {"urxvt", "-hold", "-title", "dropdownterm", "-e", "bash", "-c", "~/apps/scripts/bin/dropdown-term.sh", NULL }; */
+
+const char *spcmd1[] = {"bash", "-c", "~/apps/scripts/bin/vim-notes.sh", NULL };
+const char *spcmd2[] = {"bash", "-c", "~/apps/scripts/bin/i3-personal-calendar.sh", NULL };
+const char *spcmd3[] = {"bash", "-c", "~/apps/scripts/bin/dropdown-term.sh", NULL };
 
 static Sp scratchpads[] = {
 	/* name          		cmd  */
