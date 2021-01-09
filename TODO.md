@@ -1,9 +1,0 @@
-- [ ] Check below why the last one runs, and the other ones on tmux not. Maybe I can start all with /bin/bash and add xdotool to type the tmux load commands once there...
-	- [ ] MOD+n /home/pi/apps/scripts/bin/vim-notes.sh &
-	- [ ] Mod1+l /home/pi/apps/scripts/bin/i3-personal-calendar.sh &
-	- [x] Mod1+t /home/pi/apps/scripts/bin/dropdown-term.sh &
-- [ ] Search for a command to see the desktop, without the windows
-- [ ] `TODO.port-from-i3.md`: Port i3 bindsyms
-- [ ] Instalar e configurar o khal e o vdirsyncer para o scratchpad do personal-calendar funcionar.
-- [ ] Check if scratchpads for vim and personal-calendar are opened floating with urxvt on picom with no transparency
-- [ ] Bring some i3 bindsyms to dwm using shkxd?
