@@ -244,8 +244,8 @@ static Key keys[] = {
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_v,			spawn,		SHCMD("pavucontrol") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_k,			spawn,		SHCMD("~/apps/scripts/rofi/toggle_keyboards.py") },
 	/* description: (cmd) */ 				{ Mod1Mask|ShiftMask,		XK_k,			spawn,		SHCMD("~/apps/scripts/bin/keyboard-backlight.sh") },
-	/* description: (cmd) */ 				{ Mod1Mask,			XK_p,			spawn,		SHCMD("notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000") },
-	/* description: (cmd) */ 				{ Mod1Mask|ShiftMask,		XK_p,			spawn,		SHCMD("notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots &&  flameshot gui -p ~/screenshots -d 2000") },
+	/* description: (cmd) */ 				{ Mod1Mask,			XK_p,			spawn,		SHCMD("~/apps/scripts/bin/screenshot.py -s full") },
+	/* description: (cmd) */ 				{ Mod1Mask|ShiftMask,		XK_p,			spawn,		SHCMD("~/apps/scripts/bin/screenshot.py -s region") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_b,			spawn,		SHCMD("flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal -C ~/.local/share/qutebrowser/personal/config/config.py") },
 	/* description: (cmd) */ 				{ Mod1Mask|ShiftMask,		XK_b,			spawn,		SHCMD("flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/work/dafiti -C ~/.local/share/qutebrowser/work/dafiti/config/config.py") },
 
