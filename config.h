@@ -43,11 +43,13 @@ typedef struct {
 /* const char *spcmd1[] = {"st", "-n", "dropdownterm", "-c", "Dropdownterm", "-g", "120x45", NULL}; */
 const char *spcmd1[] = {"urxvt", "-name", "dropdownterm", "-title", "dropdownterm", "-geometry", "120x45", NULL};
 const char *spcmd2[] = {"pcmanfm", NULL };
+const char *spcmd3[] = {"urxvt", "-name", "nnn", "-title", "nnn", "-geometry", "120x45", NULL};
 
 static Sp scratchpads[] = {
 	/* name          		cmd  */
 	{"dropdownterm",      		spcmd1},
-	{"filemanager",      		spcmd2},
+	{"pcmanfm",      		spcmd2},
+	{"nnn",      			spcmd3},
 };
 
 /* tagging */
@@ -64,6 +66,7 @@ static const Rule rules[] = {
 	{ NULL,       		NULL,       		"Event Tester",   	0,            	0,           	0,         	1,        	-1 },
 	{ NULL,      		"dropdownterm",    	NULL,       	    	SPTAG(0),     	1,           	1,         	1,        	-1 },
 	{ "Pcmanfm",		NULL,  		  	NULL,       	    	SPTAG(1),     	1,           	1,         	1,        	-1 },
+	{ NULL,      		"nnn",    		NULL,       	    	SPTAG(2),     	1,           	1,         	1,        	-1 },
 	{ "Sxiv",    		NULL,    		NULL,       	    	0,     		1,           	0,         	1,        	-1 },
 	{ "Arandr",    		NULL,    		NULL,       	    	0,     		1,           	0,         	1,        	-1 },
 };
@@ -193,8 +196,11 @@ static Key keys[] = {
 	/* description: (dwm) */ 				{ MODKEY,			XK_a,			togglegaps,	{0} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_s,			togglesticky,	{0} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_f,			togglefullscr,	{0} },
+
 	/* description: (dwm:scratchpad) dropdownterm */ 	{ Mod1Mask,			XK_t,			togglescratch,	{.ui = 0} },
-	/* description: (dwm:scratchpad) filemanager */		{ MODKEY,			XK_n,			togglescratch,	{.ui = 1} },
+	/* description: (dwm:scratchpad) pcmanfm */		{ MODKEY|ShiftMask,		XK_r,			togglescratch,	{.ui = 1} },
+	/* description: (dwm:scratchpad) nnn */			{ MODKEY, 	 		XK_r,			togglescratch,	{.ui = 2} },
+
 	/* description: (dwm) */ 				{ MODKEY,			XK_b,			togglebar,	{0} },
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_space,		togglefloating,	{0} },
 
@@ -231,9 +237,7 @@ static Key keys[] = {
 	/* description: (cmd) */ 				{ Mod1Mask, 			XK_s,			spawn,          SHCMD("~/apps/scripts/rofi/snippets.sh") },
 	/* description: (cmd) */ 				{ Mod1Mask, 			XK_o,			spawn,          SHCMD("~/apps/scripts/bin/toggle_compositor.sh") },
 	/* description: (cmd) */ 				{ MODKEY, 			XK_m,			spawn,          SHCMD("arandr && reload_wallpaper.sh") },
-	/* description: (cmd) file manager - nnn */		{ MODKEY, 	 		XK_r,			spawn,          SHCMD("urxvt -name nnn --hold -e nnn") },
-	/* description: (cmd) file manager - pcmanfm */		{ MODKEY|ShiftMask,		XK_r,			spawn,          SHCMD("pcmanfm") },
-	/* description: (cmd) */ 				{ Mod1Mask,			XK_h,			spawn,		SHCMD("urxvt -name nnn --hold -e htop") },
+	/* description: (cmd) */ 				{ Mod1Mask,			XK_h,			spawn,		SHCMD("urxvt -name htop -title htop --hold -e htop") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_r,			spawn,		SHCMD("lxappearance") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_c,			spawn,		SHCMD("~/apps/scripts/bin/customize_capslock.sh") },
 	/* description: (cmd) echo keys typed on screen */	{ Mod1Mask,			XK_n,			spawn,		SHCMD("killall screenkey || screenkey &") },
@@ -247,7 +251,7 @@ static Key keys[] = {
 
 	/* OTHER EXAMPLES */
 
-	/* urxvt -name vim --hold -e bash -c "TERM=screen-256color $TMUXP_BIN load /storage/src/devops/tmuxp/notes.yml"; */
+	/* urxvt -name vim -title vim --hold -e bash -c "TERM=screen-256color $TMUXP_BIN load /storage/src/devops/tmuxp/notes.yml"; */
 
 	/* { MODKEY,			XK_e,			spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") }, */
 	/* { 0,				XK_Print,		spawn,		SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") }, */
