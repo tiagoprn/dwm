@@ -3,7 +3,9 @@ LOG_FILE=/tmp/dwm.$(date +%Y-%m-%d).log
 
 echo "$(date +%Y%m%d-%H%M%S-%N) Sourcing environment files..." >> $LOG_FILE
 
-source $HOME/.bash_profile
+source $HOME/.bash_profile || true
+source $HOME/.bash_environment || true
+
 source $HOME/.bash_functions
 source $HOME/.bash_aliases
 source $HOME/.bashrc
