@@ -39,3 +39,9 @@ dwm-print-cheatsheet.sh | grep 'Alt'
 
 ```
 
+## HOW TO APPLY PATCHES
+
+```
+patch -p1 < path/to/patch.diff
+```
+
