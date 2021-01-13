@@ -204,8 +204,8 @@ static Key keys[] = {
 	/* description: (dwm) */ 				{ MODKEY,			XK_b,			togglebar,	{0} },
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_space,		togglefloating,	{0} },
 
-	/* description: (dwm:layouts) bstack */ 		{ MODKEY|ShiftMask,		XK_t,			setlayout,	{.v = &layouts[1]} },
 	/* description: (dwm:layouts) tile */ 			{ MODKEY,			XK_t,			setlayout,	{.v = &layouts[0]} },
+	/* description: (dwm:layouts) bstack */ 		{ MODKEY|ShiftMask,		XK_t,			setlayout,	{.v = &layouts[1]} },
 	/* description: (dwm:layouts) spiral */ 		{ MODKEY,			XK_y,			setlayout,	{.v = &layouts[2]} },
 	/* description: (dwm:layouts) dwindle */ 		{ MODKEY|ShiftMask,		XK_y,			setlayout,	{.v = &layouts[3]} },
 	/* description: (dwm:layouts) deck */ 			{ MODKEY,			XK_u,			setlayout,	{.v = &layouts[4]} },
@@ -213,6 +213,8 @@ static Key keys[] = {
 	/* description: (dwm:layouts) centeredmaster */ 	{ MODKEY,			XK_i,			setlayout,	{.v = &layouts[6]} },
 	/* description: (dwm:layouts) centeredfloatingmaster */ { MODKEY|ShiftMask,		XK_i,			setlayout,	{.v = &layouts[7]} },
 	/* description: (dwm:layouts) floating */ 		{ MODKEY|ShiftMask,		XK_f,			setlayout,	{.v = &layouts[8]} },
+
+	/* description: (cmd) change dwm windows' layout */ 	{ MODKEY,			XK_w,			spawn,          SHCMD("dwm-change-layouts.py") },
 
 	/* description: (cmd) */ 				{ MODKEY,			XK_e,			spawn,          SHCMD("rofi -show drun -drun-icon-theme") },
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_e,			spawn,          SHCMD("dmenu_run") },
