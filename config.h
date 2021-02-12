@@ -234,7 +234,7 @@ static Key keys[] = {
 	/* description: (cmd) playerctl previous */		{ Mod1Mask,			XK_Left,		spawn,          SHCMD("playerctl previous && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) increase sound volume */		{ Mod1Mask,			XK_Up,			spawn,          SHCMD("pactl set-sink-volume 0 +5% && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) decrease sound volume */		{ Mod1Mask,			XK_Down,		spawn,          SHCMD("pactl set-sink-volume 0 -5% && kill -44 $(pidof dwmblocks)") },
-	/* description: (cmd) mute/unmute sound volume */	{ Mod1Mask,			XK_period,		spawn,          SHCMD("pactl set-sink-mute 0 toggle && kill -44 $(pidof dwmblocks)") },
+	/* description: (cmd) mute/unmute sound volume */	{ Mod1Mask|ShiftMask,		XK_8,			spawn,          SHCMD("pactl set-sink-mute 0 toggle && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_v,			spawn,          SHCMD("~/apps/scripts/rofi/vim_shortcuts.py") },
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask, 		XK_b,			spawn,          SHCMD("~/apps/scripts/rofi/bookmarks.py") },
 	/* description: (cmd) wallpaper (m to mark) */   	{ Mod1Mask, 			XK_w,			spawn,          SHCMD("sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) | xargs feh --bg-scale") },
