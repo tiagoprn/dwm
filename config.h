@@ -246,7 +246,7 @@ static Key keys[] = {
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_r,			spawn,		SHCMD("lxappearance") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_c,			spawn,		SHCMD("~/apps/scripts/bin/customize_capslock.sh") },
 	/* description: (cmd) echo keys typed on screen */	{ Mod1Mask,			XK_n,			spawn,		SHCMD("killall screenkey || screenkey &") },
-	/* description: (cmd) edit text field on vim*/		{ Mod1Mask|ShiftMask,		XK_n,			spawn,		SHCMD("~/apps/scripts/bin/vim-edit-text-field.sh") },
+	/* description: (cmd) edit text field on vim*/		{ Mod1Mask,			XK_e,			spawn,		SHCMD("~/apps/scripts/bin/vim-edit-text-field.sh") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_v,			spawn,		SHCMD("pavucontrol") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_k,			spawn,		SHCMD("~/apps/scripts/rofi/toggle_keyboards.py") },
 	/* description: (cmd) */ 				{ Mod1Mask|ShiftMask,		XK_k,			spawn,		SHCMD("~/apps/scripts/bin/keyboard-backlight.sh") },
