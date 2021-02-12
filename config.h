@@ -143,6 +143,8 @@ ResourcePref resources[] = {
 #include <X11/XF86keysym.h>
 #include "shiftview.c"
 
+# The XK key codes can be found here: `/usr/include/X11/keysymdef.h`
+
 static Key keys[] = {
 	/* description: (dwm:STACKKEYS_MACRO_VALUES) */ STACKKEYS(MODKEY,                          focus)
 	/* description: (dwm:STACKKEYS_MACRO_VALUES) */ STACKKEYS(MODKEY|ShiftMask,                push)
@@ -160,21 +162,21 @@ static Key keys[] = {
 								/* modifier                     key        		function        argument */
 
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_0,			tag,		{.ui = ~0 } },
-	/* description: (dwm) */ 				{ MODKEY,			XK_BackSpace,		killclient,	{0} },
-	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_a,			defaultgaps,	{0} },
-	/* description: (dwm) */ 				{ MODKEY,			XK_space,		zoom,		{0} },
+	/* description: (dwm) kill window */ 			{ MODKEY,			XK_BackSpace,		killclient,	{0} },
+	/* description: (dwm) default gaps */ 			{ MODKEY|ShiftMask,		XK_a,			defaultgaps,	{0} },
+	/* description: (dwm) move window to master */		{ MODKEY,			XK_space,		zoom,		{0} },
 
 	/* description: (dwm) */ 				{ MODKEY,			XK_h,			setmfact,	{.f = -0.05} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_l,			setmfact,      	{.f = +0.05} },
 
-	/* description: (dwm) */ 				{ MODKEY,			XK_o,			incnmaster,     {.i = +1} },
-	/* description: (dwm) */  				{ MODKEY|ShiftMask,		XK_o,			incnmaster,     {.i = -1} },
+	/* description: (dwm) one more master window */		{ MODKEY,			XK_o,			incnmaster,     {.i = +1} },
+	/* description: (dwm) one less master window */		{ MODKEY|ShiftMask,		XK_o,			incnmaster,     {.i = -1} },
 
 	/* description: (dwm) */  				{ MODKEY,			XK_Right,		focusmon,	{.i = +1} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_Left,		focusmon,	{.i = -1} },
 
-	/* description: (dwm) */ 				{ MODKEY,			XK_p,			incrgaps,	{.i = +3} },
-	/* description: (dwm) */ 				{ MODKEY,			XK_x,			incrgaps,	{.i = -3} },
+	/* description: (dwm) increase gaps */			{ MODKEY,			XK_p,			incrgaps,	{.i = +3} },
+	/* description: (dwm) decrease gaps */			{ MODKEY,			XK_x,			incrgaps,	{.i = -3} },
 
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_Left,		tagmon,		{.i = -1} },
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_Right,		tagmon,		{.i = +1} },
@@ -193,16 +195,16 @@ static Key keys[] = {
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_semicolon,		shifttag,	{.i = 1} },
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_g,			shifttag,	{.i = -1} },
 
-	/* description: (dwm) */ 				{ MODKEY,			XK_a,			togglegaps,	{0} },
-	/* description: (dwm) */ 				{ MODKEY,			XK_s,			togglesticky,	{0} },
-	/* description: (dwm) */ 				{ MODKEY,			XK_f,			togglefullscr,	{0} },
+	/* description: (dwm) toggle gaps */			{ MODKEY,			XK_a,			togglegaps,	{0} },
+	/* description: (dwm) toggle sticky */ 			{ MODKEY,			XK_s,			togglesticky,	{0} },
+	/* description: (dwm) toggle fullscreen */		{ MODKEY,			XK_f,			togglefullscr,	{0} },
 
 	/* description: (dwm:scratchpad) dropdownterm */ 	{ Mod1Mask,			XK_t,			togglescratch,	{.ui = 0} },
 	/* description: (dwm:scratchpad) pcmanfm */		{ MODKEY|ShiftMask,		XK_r,			togglescratch,	{.ui = 1} },
 	/* description: (dwm:scratchpad) nnn */			{ MODKEY, 	 		XK_r,			togglescratch,	{.ui = 2} },
 
-	/* description: (dwm) */ 				{ MODKEY,			XK_b,			togglebar,	{0} },
-	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_space,		togglefloating,	{0} },
+	/* description: (dwm) toggle bar (dwmblocks) */		{ MODKEY,			XK_b,			togglebar,	{0} },
+	/* description: (dwm) toggle window floating */		{ MODKEY|ShiftMask,		XK_space,		togglefloating,	{0} },
 
 	/* description: (dwm:layouts) tile */ 			{ MODKEY,			XK_t,			setlayout,	{.v = &layouts[0]} },
 	/* description: (dwm:layouts) bstack */ 		{ MODKEY|ShiftMask,		XK_t,			setlayout,	{.v = &layouts[1]} },
@@ -216,9 +218,9 @@ static Key keys[] = {
 
 	/* description: (cmd) change dwm windows' layout */ 	{ MODKEY|ShiftMask,		XK_w,			spawn,          SHCMD("dwm-change-layouts.py") },
 
-	/* description: (cmd) */ 				{ MODKEY,			XK_e,			spawn,          SHCMD("rofi -show drun -drun-icon-theme") },
-	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_e,			spawn,          SHCMD("dmenu_run") },
-	/* description: (cmd) */ 				{ MODKEY, 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") },
+	/* description: (cmd) rofi app menu */			{ MODKEY,			XK_e,			spawn,          SHCMD("rofi -show drun -drun-icon-theme") },
+	/* description: (cmd) dmenu apps */			{ MODKEY|ShiftMask,		XK_e,			spawn,          SHCMD("dmenu_run") },
+	/* description: (cmd) rofi shutdown menu */		{ MODKEY, 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") },
 	/* description: (cmd) */ 				{ MODKEY, 			XK_c,			spawn,          SHCMD("clippy_rofi.py") },
 	/* description: (cmd) */ 				{ MODKEY,			XK_Return,		spawn,		{.v = termcmd} },
 	/* description: (cmd) */ 				{ MODKEY, 			XK_d,			spawn,          SHCMD("~/apps/scripts/rofi/dwm_cheatsheet.sh") },
@@ -228,11 +230,11 @@ static Key keys[] = {
 	/* description: (cmd) increase screen brightness */ 	{ Mod1Mask|ShiftMask,		XK_Up,			spawn,          SHCMD("xbacklight -inc 20") },
 	/* description: (cmd) decrease screen brightness */	{ Mod1Mask|ShiftMask,		XK_Down,		spawn,          SHCMD("xbacklight -dec 20") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_space,		spawn,          SHCMD("playerctl play-pause && kill -44 $(pidof dwmblocks)") },
-	/* description: (cmd) */ 				{ Mod1Mask,			XK_Right,		spawn,          SHCMD("playerctl next && kill -44 $(pidof dwmblocks)") },
-	/* description: (cmd) */ 				{ Mod1Mask,			XK_Left,		spawn,          SHCMD("playerctl previous && kill -44 $(pidof dwmblocks)") },
+	/* description: (cmd) playerctl next */ 		{ Mod1Mask,			XK_Right,		spawn,          SHCMD("playerctl next && kill -44 $(pidof dwmblocks)") },
+	/* description: (cmd) playerctl previous */		{ Mod1Mask,			XK_Left,		spawn,          SHCMD("playerctl previous && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) increase sound volume */		{ Mod1Mask,			XK_Up,			spawn,          SHCMD("pactl set-sink-volume 0 +5% && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) decrease sound volume */		{ Mod1Mask,			XK_Down,		spawn,          SHCMD("pactl set-sink-volume 0 -5% && kill -44 $(pidof dwmblocks)") },
-	/* description: (cmd) mute/unmute sound */ 		{ Mod1Mask,			XK_Shift_L,		spawn,          SHCMD("pactl set-sink-mute 0 toggle && kill -44 $(pidof dwmblocks)") },
+	/* description: (cmd) mute/unmute sound volume */	{ Mod1Mask,			XK_Period,		spawn,          SHCMD("pactl set-sink-mute 0 toggle && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_v,			spawn,          SHCMD("~/apps/scripts/rofi/vim_shortcuts.py") },
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask, 		XK_b,			spawn,          SHCMD("~/apps/scripts/rofi/bookmarks.py") },
 	/* description: (cmd) wallpaper (m to mark) */   	{ Mod1Mask, 			XK_w,			spawn,          SHCMD("sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) | xargs feh --bg-scale") },
