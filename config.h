@@ -71,6 +71,7 @@ static const Rule rules[] = {
 	{ "Arandr",    		NULL,    		NULL,       	    	0,     		1,           	0,         	1,        	-1 },
 };
 
+
 /* layout(s) */
 static float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static int nmaster     = 1;    /* number of clients in master area */
@@ -79,24 +80,27 @@ static int resizehints = 1;    /* 1 means respect size hints in tiled resizals *
 #include "vanitygaps.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
- 	{ "[]=",	tile },			/* Default: Master on left, slaves on right */
-	{ "TTT",	bstack },		/* Master on top, slaves on bottom */
+ 	{ "[]=",	tile },			/*Default - Main on left, others on right */
+	{ "TTT",	bstack },		/*Master on top, slaves on bottom */
 
-	{ "[@]",	spiral },		/* Fibonacci spiral */
-	{ "[\\]",	dwindle },		/* Decreasing in size right and leftward */
+	{ "[@]",	spiral },		/*Fibonacci spiral */
+	{ "[\\]",	dwindle },		/*Decreasing in size right and leftward */
 
-	{ "[D]",	deck },			/* Master on left, slaves in monocle-like mode on right */
- 	{ "[M]",	monocle },		/* All windows on top of eachother */
+	{ "[D]",	deck },			/*Master on left, slaves in monocle-like mode on right */
+ 	{ "[M]",	monocle },		/*All windows on top of eachother */
 
-	{ "|M|",	centeredmaster },		/* Master in middle, slaves on sides */
-	{ ">M>",	centeredfloatingmaster },	/* Same but master floats */
+	{ "|M|",	centeredmaster },		/*Master in middle, slaves on sides */
+	{ ">M>",	centeredfloatingmaster },	/*Master floats, slaves do not */
 
-	{ "><>",	NULL },			/* no layout function means floating behavior */
+	{ "><>",	NULL },			/*no layout (floating behavior) */
 	{ NULL,		NULL },
 };
 
+/* description: (dwm:tags) - Right mouse click on tag ("workpace"): merge/unmerge tag contents to current tag */
+
 /* key definitions */
 #define MODKEY Mod4Mask
+
 
 #define TAGKEYS(KEY,TAG) \
 	/* description: (dwm:TAGKEYS_MACRO) */ { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -239,17 +243,20 @@ static Key keys[] = {
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask, 		XK_b,			spawn,          SHCMD("~/apps/scripts/rofi/bookmarks.py") },
 	/* description: (cmd) wallpaper (m to mark) */   	{ Mod1Mask, 			XK_w,			spawn,          SHCMD("sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) | xargs feh --bg-scale") },
 	/* description: (cmd) */ 				{ Mod1Mask, 			XK_s,			spawn,          SHCMD("~/apps/scripts/rofi/snippets.sh") },
+	/* description: (cmd) dmenu search (archwiki, etc) */ 	{ Mod1Mask|ShiftMask, 		XK_s,			spawn,          SHCMD("~/apps/scripts/bin/dmsearch.sh") },
 	/* description: (cmd) */ 				{ Mod1Mask, 			XK_o,			spawn,          SHCMD("~/apps/scripts/bin/toggle_compositor.sh") },
 	/* description: (cmd) */ 				{ MODKEY, 			XK_m,			spawn,          SHCMD("arandr && reload_wallpaper.sh") },
 	/* description: (cmd) */ 				{ MODKEY, 			XK_w,			spawn,          SHCMD("~/apps/scripts/bin/pass-rofi.sh") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_h,			spawn,		SHCMD("urxvt -name htop -title htop --hold -e htop") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_r,			spawn,		SHCMD("lxappearance") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_c,			spawn,		SHCMD("~/apps/scripts/bin/customize_capslock.sh") },
+	/* description: (cmd) dmenu select HEX color */    	{ Mod1Mask|ShiftMask,  		XK_c,			spawn,		SHCMD("~/apps/scripts/bin/dmcolors.sh") },
 	/* description: (cmd) echo keys typed on screen */	{ Mod1Mask,			XK_n,			spawn,		SHCMD("killall screenkey || screenkey &") },
 	/* description: (cmd) vedit.sh: vim edit text field */  { Mod1Mask,			XK_e,			spawn,		SHCMD("~/apps/scripts/bin/vedit.sh") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_v,			spawn,		SHCMD("pavucontrol") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_k,			spawn,		SHCMD("~/apps/scripts/rofi/toggle_keyboards.py") },
 	/* description: (cmd) */ 				{ Mod1Mask|ShiftMask,		XK_k,			spawn,		SHCMD("~/apps/scripts/bin/keyboard-backlight.sh") },
+	/* description: (cmd) dmenu kill user process */ 	{ MODKEY|ShiftMask,		XK_k,			spawn,		SHCMD("~/apps/scripts/bin/dmkill.sh") },
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_p,			spawn,		SHCMD("~/apps/scripts/bin/screenshot.py -s full") },
 	/* description: (cmd) */ 				{ MODKEY,			XK_p,			spawn,		SHCMD("~/apps/scripts/bin/screenshot.py -s region") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_b,			spawn,		SHCMD("flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal -C ~/.local/share/qutebrowser/personal/config/config.py") },
