@@ -224,6 +224,7 @@ static Key keys[] = {
 
 	/* description: (cmd) rofi app menu */			{ MODKEY,			XK_e,			spawn,          SHCMD("rofi -show drun -drun-icon-theme") },
 	/* description: (cmd) dmenu apps */			{ MODKEY|ShiftMask,		XK_e,			spawn,          SHCMD("dmenu_run") },
+	/* description: (cmd) dmenu launcher */ 		{ MODKEY|ShiftMask,     	XK_l,			spawn,          SHCMD("~/apps/scripts/bin/dmlauncher.sh") },
 	/* description: (cmd) rofi shutdown menu */		{ MODKEY, 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") },
 	/* description: (cmd) */ 				{ MODKEY, 			XK_c,			spawn,          SHCMD("clippy_rofi.py") },
 	/* description: (cmd) */ 				{ MODKEY,			XK_Return,		spawn,		{.v = termcmd} },
@@ -243,7 +244,6 @@ static Key keys[] = {
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask, 		XK_b,			spawn,          SHCMD("~/apps/scripts/rofi/bookmarks.py") },
 	/* description: (cmd) wallpaper (m to mark) */   	{ Mod1Mask, 			XK_w,			spawn,          SHCMD("sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) | xargs feh --bg-scale") },
 	/* description: (cmd) */ 				{ Mod1Mask, 			XK_s,			spawn,          SHCMD("~/apps/scripts/rofi/snippets.sh") },
-	/* description: (cmd) dmenu launcher */ 		{ MODKEY|ShiftMask,     	XK_l,			spawn,          SHCMD("~/apps/scripts/bin/dmlauncher.sh") },
 	/* description: (cmd) */ 				{ Mod1Mask, 			XK_o,			spawn,          SHCMD("~/apps/scripts/bin/toggle_compositor.sh") },
 	/* description: (cmd) */ 				{ MODKEY, 			XK_m,			spawn,          SHCMD("arandr && reload_wallpaper.sh") },
 	/* description: (cmd) */ 				{ MODKEY, 			XK_w,			spawn,          SHCMD("~/apps/scripts/bin/pass-rofi.sh") },
