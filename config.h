@@ -65,10 +65,10 @@ static const Rule rules[] = {
 	{ TERMCLASS,  		NULL,       		NULL,       	    	0,            	0,           	1,         	0,        	-1 },
 	{ NULL,       		NULL,       		"Event Tester",   	0,            	0,           	0,         	1,        	-1 },
 	{ NULL,      		"dropdownterm",    	NULL,       	    	SPTAG(0),     	0,           	1,         	1,        	-1 },
-	{ "Pcmanfm",		NULL,  		  	NULL,       	    	SPTAG(1),     	1,           	1,         	1,        	-1 },
-	{ NULL,      		"nnn",    		NULL,       	    	SPTAG(2),     	1,           	1,         	1,        	-1 },
-	{ "Sxiv",    		NULL,    		NULL,       	    	0,     		1,           	0,         	1,        	-1 },
-	{ "Arandr",    		NULL,    		NULL,       	    	0,     		1,           	0,         	1,        	-1 },
+	{ "Pcmanfm",		NULL,  		  	NULL,       	    	SPTAG(1),     	0,           	1,         	1,        	-1 },
+	{ NULL,      		"nnn",    		NULL,       	    	SPTAG(2),     	0,           	1,         	1,        	-1 },
+	{ "Sxiv",    		NULL,    		NULL,       	    	0,     		0,           	0,         	1,        	-1 },
+	{ "Arandr",    		NULL,    		NULL,       	    	0,     		0,           	0,         	1,        	-1 },
 };
 
 
