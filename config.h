@@ -41,7 +41,7 @@ typedef struct {
 
 
 /* const char *spcmd1[] = {"st", "-n", "dropdownterm", "-c", "Dropdownterm", "-g", "120x45", NULL}; */
-const char *spcmd1[] = {"urxvt", "-name", "dropdownterm", "-title", "dropdownterm", "-geometry", "120x30", NULL};
+const char *spcmd1[] = {"urxvt", "-name", "dropdownterm", "-title", "dropdownterm", "--hold", "-e", "tmux",  NULL};
 const char *spcmd2[] = {"pcmanfm", NULL };
 const char *spcmd3[] = {"urxvt", "-name", "nnn", "-title", "nnn", "--hold", "-e", "nnn", NULL};
 
@@ -64,7 +64,7 @@ static const Rule rules[] = {
 	{ "Gimp",     		NULL,       		NULL,       	    	1 << 8,       	0,           	0,         	0,        	-1 },
 	{ TERMCLASS,  		NULL,       		NULL,       	    	0,            	0,           	1,         	0,        	-1 },
 	{ NULL,       		NULL,       		"Event Tester",   	0,            	0,           	0,         	1,        	-1 },
-	{ NULL,      		"dropdownterm",    	NULL,       	    	SPTAG(0),     	1,           	1,         	1,        	-1 },
+	{ NULL,      		"dropdownterm",    	NULL,       	    	SPTAG(0),     	0,           	1,         	1,        	-1 },
 	{ "Pcmanfm",		NULL,  		  	NULL,       	    	SPTAG(1),     	1,           	1,         	1,        	-1 },
 	{ NULL,      		"nnn",    		NULL,       	    	SPTAG(2),     	1,           	1,         	1,        	-1 },
 	{ "Sxiv",    		NULL,    		NULL,       	    	0,     		1,           	0,         	1,        	-1 },
@@ -80,6 +80,7 @@ static int resizehints = 1;    /* 1 means respect size hints in tiled resizals *
 #include "vanitygaps.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
+	{ "|M|",	centeredmaster },		/*Master in middle, slaves on sides */
  	{ "[]=",	tile },			/*Default - Main on left, others on right */
 	{ "TTT",	bstack },		/*Master on top, slaves on bottom */
 
@@ -89,7 +90,6 @@ static const Layout layouts[] = {
 	{ "[D]",	deck },			/*Master on left, slaves in monocle-like mode on right */
  	{ "[M]",	monocle },		/*All windows on top of eachother */
 
-	{ "|M|",	centeredmaster },		/*Master in middle, slaves on sides */
 	{ ">M>",	centeredfloatingmaster },	/*Master floats, slaves do not */
 
 	{ "><>",	NULL },			/*no layout (floating behavior) */
