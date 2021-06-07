@@ -179,8 +179,8 @@ static Key keys[] = {
 	/* description: (dwm) */  				{ MODKEY,			XK_Right,		focusmon,	{.i = +1} },
 	/* description: (dwm) */ 				{ MODKEY,			XK_Left,		focusmon,	{.i = -1} },
 
-	/* description: (dwm) increase gaps */			{ MODKEY,			XK_p,			incrgaps,	{.i = +3} },
-	/* description: (dwm) decrease gaps */			{ MODKEY,			XK_x,			incrgaps,	{.i = -3} },
+	/* description: (dwm) increase gaps */			{ MODKEY,			XK_n,			incrgaps,	{.i = +3} },
+	/* description: (dwm) decrease gaps */			{ MODKEY|ShiftMask,		XK_n,			incrgaps,	{.i = -3} },
 
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_Left,		tagmon,		{.i = -1} },
 	/* description: (dwm) */ 				{ MODKEY|ShiftMask,		XK_Right,		tagmon,		{.i = +1} },
