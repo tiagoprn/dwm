@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* Constants */
-#define TERMINAL "st"
-#define TERMCLASS "St"
+#define TERMINAL "alacritty"
+#define TERMCLASS "Alacritty"
 
 /* appearance */
 static unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -41,9 +41,11 @@ typedef struct {
 
 
 /* const char *spcmd1[] = {"st", "-n", "dropdownterm", "-c", "Dropdownterm", "-g", "120x45", NULL}; */
-const char *spcmd1[] = {"urxvt", "-name", "dropdownterm", "-title", "dropdownterm", "--hold", "-e", "tmux",  NULL};
+/* const char *spcmd1[] = {"urxvt", "-name", "dropdownterm", "-title", "dropdownterm", "--hold", "-e", "tmux",  NULL}; */
+const char *spcmd1[] = {"alacritty", "--class", "dropdownterm", "--title", "dropdownterm", "--hold", "-e", "tmux",  NULL};
 const char *spcmd2[] = {"pcmanfm", NULL };
-const char *spcmd3[] = {"urxvt", "-name", "nnn", "-title", "nnn", "--hold", "-e", "nnn", NULL};
+/* const char *spcmd3[] = {"urxvt", "-name", "nnn", "-title", "nnn", "--hold", "-e", "nnn", NULL}; */
+const char *spcmd3[] = {"alacritty", "--class", "nnn", "--title", "nnn", "--hold", "-e", "nnn", NULL};
 
 static Sp scratchpads[] = {
 	/* name          		cmd  */
@@ -229,7 +231,7 @@ static Key keys[] = {
 	/* description: (cmd) */ 				{ MODKEY, 			XK_c,			spawn,          SHCMD("clippy_rofi.py") },
 	/* description: (cmd) */ 				{ MODKEY,			XK_Return,		spawn,		{.v = termcmd} },
 	/* description: (cmd) */ 				{ MODKEY, 			XK_d,			spawn,          SHCMD("~/apps/scripts/bin/dmcheatsheets-menu.sh") },
-	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_Return,		spawn,          SHCMD("st -e bash -c 'TERM=screen-256color ~/apps/scripts/bin/start_random_tmux_session_name.sh'") },
+	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_Return,		spawn,          SHCMD("alacritty -e bash -c 'TERM=screen-256color ~/apps/scripts/bin/start_random_tmux_session_name.sh'") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_Tab,			spawn,          SHCMD("rofi -show window -drun-icon-theme") },
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_d,			spawn,          SHCMD("notify-send -u critical 'Restarting dwm...' && pkill -HUP dwm") },
 	/* description: (cmd) increase screen brightness */ 	{ Mod1Mask|ShiftMask,		XK_Up,			spawn,          SHCMD("xbacklight -inc 20") },
@@ -242,6 +244,7 @@ static Key keys[] = {
 	/* description: (cmd) mute/unmute sound volume */	{ Mod1Mask|ShiftMask,		XK_8,			spawn,          SHCMD("pactl set-sink-mute $(pacmd list-sink-inputs | grep -c index) toggle && kill -44 $(pidof dwmblocks)") },
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask, 		XK_b,			spawn,          SHCMD("~/apps/scripts/rofi/bookmarks.py") },
 	/* description: (cmd) wallpaper (m to mark) */   	{ Mod1Mask, 			XK_w,			spawn,          SHCMD("sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) | xargs feh --bg-scale") },
+	/* description: (cmd) styli.sh random wallpaper */   	{ Mod1Mask|ShiftMask,		XK_w,			spawn,          SHCMD("/opt/styli.sh/styli.sh -l reddit") },
 	/* description: (cmd) */ 				{ Mod1Mask, 			XK_s,			spawn,          SHCMD("~/apps/scripts/rofi/snippets.sh") },
 	/* description: (cmd) */ 				{ Mod1Mask, 			XK_o,			spawn,          SHCMD("~/apps/scripts/bin/toggle_compositor.sh") },
 	/* description: (cmd) */ 				{ MODKEY, 			XK_m,			spawn,          SHCMD("arandr && reload_wallpaper.sh") },
