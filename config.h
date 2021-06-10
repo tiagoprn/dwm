@@ -1,8 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* Constants */
-#define TERMINAL "alacritty"
-#define TERMCLASS "Alacritty"
+/* #define TERMINAL "alacritty" */
 
 /* appearance */
 static unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -42,10 +41,11 @@ typedef struct {
 
 /* const char *spcmd1[] = {"st", "-n", "dropdownterm", "-c", "Dropdownterm", "-g", "120x45", NULL}; */
 /* const char *spcmd1[] = {"urxvt", "-name", "dropdownterm", "-title", "dropdownterm", "--hold", "-e", "tmux",  NULL}; */
-const char *spcmd1[] = {"alacritty", "--class", "dropdownterm", "--title", "dropdownterm", "--hold", "-e", "tmux",  NULL};
+/* const char *spcmd1[] = {"~/apps/scripts/bin/terminal-dropdownterm.sh",  NULL}; */
+const char *spcmd1[] = {"terminal-dropdownterm.sh",  NULL};
 const char *spcmd2[] = {"pcmanfm", NULL };
 /* const char *spcmd3[] = {"urxvt", "-name", "nnn", "-title", "nnn", "--hold", "-e", "nnn", NULL}; */
-const char *spcmd3[] = {"alacritty", "--class", "nnn", "--title", "nnn", "--hold", "-e", "nnn", NULL};
+const char *spcmd3[] = {"~/apps/scripts/bin/terminal-nnn.sh", NULL};
 
 static Sp scratchpads[] = {
 	/* name          		cmd  */
@@ -64,7 +64,8 @@ static const Rule rules[] = {
 	*/
 	/* class    		instance      		title       	 	tags mask    	isfloating   	isterminal  	noswallow  	monitor */
 	{ "Gimp",     		NULL,       		NULL,       	    	1 << 8,       	0,           	0,         	0,        	-1 },
-	{ TERMCLASS,  		NULL,       		NULL,       	    	0,            	0,           	1,         	0,        	-1 },
+	{ "Alacritty",  	NULL,       		NULL,       	    	0,            	0,           	1,         	0,        	-1 },
+	{ "St",  		NULL,       		NULL,       	    	0,            	0,           	1,         	0,        	-1 },
 	{ NULL,       		NULL,       		"Event Tester",   	0,            	0,           	0,         	1,        	-1 },
 	{ NULL,      		"dropdownterm",    	NULL,       	    	SPTAG(0),     	0,           	1,         	1,        	-1 },
 	{ "Pcmanfm",		NULL,  		  	NULL,       	    	SPTAG(1),     	0,           	1,         	1,        	-1 },
@@ -117,9 +118,6 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/bash", "-c", cmd, NULL } }
-
-/* commands */
-static const char *termcmd[]  = { TERMINAL, NULL };
 
 /*
  * Xresources preferences to load at startup
@@ -229,9 +227,9 @@ static Key keys[] = {
 	/* description: (cmd) dmenu launcher */ 		{ MODKEY|ShiftMask,     	XK_l,			spawn,          SHCMD("~/apps/scripts/bin/dmlauncher.sh") },
 	/* description: (cmd) rofi shutdown menu */		{ MODKEY, 			XK_z,			spawn,          SHCMD("~/apps/scripts/rofi/shutdown.py") },
 	/* description: (cmd) */ 				{ MODKEY, 			XK_c,			spawn,          SHCMD("clippy_rofi.py") },
-	/* description: (cmd) */ 				{ MODKEY,			XK_Return,		spawn,		{.v = termcmd} },
+	/* description: (cmd) */ 				{ MODKEY,			XK_Return,		spawn,		SHCMD("~/apps/scripts/bin/terminal.sh")},
 	/* description: (cmd) */ 				{ MODKEY, 			XK_d,			spawn,          SHCMD("~/apps/scripts/bin/dmcheatsheets-menu.sh") },
-	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_Return,		spawn,          SHCMD("alacritty -e bash -c 'TERM=screen-256color ~/apps/scripts/bin/start_random_tmux_session_name.sh'") },
+	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_Return,		spawn,          SHCMD("~/apps/scripts/bin/terminal-tmux.sh") },
 	/* description: (cmd) */ 				{ Mod1Mask,			XK_Tab,			spawn,          SHCMD("rofi -show window -drun-icon-theme") },
 	/* description: (cmd) */ 				{ MODKEY|ShiftMask,		XK_d,			spawn,          SHCMD("notify-send -u critical 'Restarting dwm...' && pkill -HUP dwm") },
 	/* description: (cmd) increase screen brightness */ 	{ Mod1Mask|ShiftMask,		XK_Up,			spawn,          SHCMD("xbacklight -inc 20") },
@@ -266,9 +264,9 @@ static Key keys[] = {
 
 	/* urxvt -name vim -title vim --hold -e bash -c "TERM=screen-256color $TMUXP_BIN load /storage/src/devops/tmuxp/notes.yml"; */
 
-	/* { MODKEY,			XK_e,			spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") }, */
+	/* { MODKEY,			XK_e,			spawn,		SHCMD("~/apps/scripts/bin/terminal.sh -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") }, */
 	/* { 0,				XK_Print,		spawn,		SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") }, */
-	/* { MODKEY|ShiftMask,		XK_n,			spawn,		SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") }, */
+	/* { MODKEY|ShiftMask,		XK_n,			spawn,		SHCMD("~/apps/scripts/bin/terminal.sh -e newsboat; pkill -RTMIN+6 dwmblocks") }, */
 	/* { MODKEY,			XK_Insert,		spawn,		SHCMD("xdotool type $(cat ~/.local/share/larbs/snippets | dmenu -i -l 50 | cut -d' ' -f1)") }, */
 
 };
@@ -286,7 +284,7 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
 	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
 #endif
-	{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD(TERMINAL " -e vim /storage/src/dwmblocks/config.h") },
+	{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD("~/apps/scripts/bin/terminal.sh -e vim /storage/src/dwmblocks/config.h") },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        defaultgaps,	{0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
